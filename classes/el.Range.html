@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua API</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Attributes">Attributes </a></li>
+<li><a href="#Methods">Methods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.AudioBuffer.html">el.AudioBuffer</a></li>
+  <li><a href="../classes/el.Bounds.html">el.Bounds</a></li>
+  <li><a href="../classes/el.Commands.html">el.Commands</a></li>
+  <li><a href="../classes/el.Content.html">el.Content</a></li>
+  <li><a href="../classes/el.Context.html">el.Context</a></li>
+  <li><a href="../classes/el.Desktop.html">el.Desktop</a></li>
+  <li><a href="../classes/el.Graph.html">el.Graph</a></li>
+  <li><a href="../classes/el.GraphEditor.html">el.GraphEditor</a></li>
+  <li><a href="../classes/el.Graphics.html">el.Graphics</a></li>
+  <li><a href="../classes/el.MidiBuffer.html">el.MidiBuffer</a></li>
+  <li><a href="../classes/el.MidiMessage.html">el.MidiMessage</a></li>
+  <li><a href="../classes/el.MouseEvent.html">el.MouseEvent</a></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Point.html">el.Point</a></li>
+  <li><strong>el.Range</strong></li>
+  <li><a href="../classes/el.Rectangle.html">el.Rectangle</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.Slider.html">el.Slider</a></li>
+  <li><a href="../classes/el.TextButton.html">el.TextButton</a></li>
+  <li><a href="../classes/el.View.html">el.View</a></li>
+  <li><a href="../classes/el.Widget.html">el.Widget</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+  <li><a href="../classes/el.DSPScriptPosition.html">el.DSPScriptPosition</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.bytes.html">el.bytes</a></li>
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.midi.html">el.midi</a></li>
+  <li><a href="../modules/el.object.html">el.object</a></li>
+  <li><a href="../modules/el.round.html">el.round</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+  <li><a href="../modules/el.strings.html">el.strings</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+  <li><a href="../examples/channelize.lua.html">channelize.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>el.Range</code></h1>
+<p>A numeric value range.</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Range.new">Range.new ()</a></td>
+	<td class="summary">Create an empty range.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Range.new">Range.new (start, end)</a></td>
+	<td class="summary">Create a new range.</td>
+	</tr>
+</table>
+<h2><a href="#Attributes">Attributes </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Range.min">Range.min</a></td>
+	<td class="summary">Minimum value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Range.max">Range.max</a></td>
+	<td class="summary">Maximum value.</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Range:empty">Range:empty ()</a></td>
+	<td class="summary">Returns true if the range has a length of zero.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Range:length">Range:length ()</a></td>
+	<td class="summary">Returns the length (max - min).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Range:setLength">Range:setLength (length)</a></td>
+	<td class="summary">Set the length.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Range.new"></a>
+    <strong>Range.new ()</strong>
+    </dt>
+    <dd>
+    Create an empty range.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">kv.Range</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Range.new"></a>
+    <strong>Range.new (start, end)</strong>
+    </dt>
+    <dd>
+    Create a new range.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">start</span>
+            <span class="types"><span class="type">number</span></span>
+         Start value
+        </li>
+        <li><span class="parameter">end</span>
+            <span class="types"><span class="type">number</span></span>
+         End value
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">kv.Range</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Attributes"></a>Attributes </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Range.min"></a>
+    <strong>Range.min</strong>
+    </dt>
+    <dd>
+    Minimum value. </p>
+
+<p> Set to change the start position of the range, leaving the end position unchanged.
+ If the new start position is higher than the current end of the range, the end point
+ will be pushed along to equal it, leaving an empty range at the new position.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Range.max"></a>
+    <strong>Range.max</strong>
+    </dt>
+    <dd>
+    Maximum value. </p>
+
+<p> Changes the end position of the range, leaving the start unchanged.
+ If the new end position is below the current start of the range, the
+ start point will be pushed back to equal the new end point.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Range:empty"></a>
+    <strong>Range:empty ()</strong>
+    </dt>
+    <dd>
+    Returns true if the range has a length of zero.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Range:length"></a>
+    <strong>Range:length ()</strong>
+    </dt>
+    <dd>
+    Returns the length (max - min).
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Range:setLength"></a>
+    <strong>Range:setLength (length)</strong>
+    </dt>
+    <dd>
+    Set the length.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">length</span>
+            <span class="types"><span class="type">number</span></span>
+         New length to set.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-02-17 21:40:47 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

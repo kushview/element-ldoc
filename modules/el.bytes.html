@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua API</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>el.bytes</strong></li>
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.midi.html">el.midi</a></li>
+  <li><a href="../modules/el.object.html">el.object</a></li>
+  <li><a href="../modules/el.round.html">el.round</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+  <li><a href="../modules/el.strings.html">el.strings</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.AudioBuffer.html">el.AudioBuffer</a></li>
+  <li><a href="../classes/el.Bounds.html">el.Bounds</a></li>
+  <li><a href="../classes/el.Commands.html">el.Commands</a></li>
+  <li><a href="../classes/el.Content.html">el.Content</a></li>
+  <li><a href="../classes/el.Context.html">el.Context</a></li>
+  <li><a href="../classes/el.Desktop.html">el.Desktop</a></li>
+  <li><a href="../classes/el.Graph.html">el.Graph</a></li>
+  <li><a href="../classes/el.GraphEditor.html">el.GraphEditor</a></li>
+  <li><a href="../classes/el.Graphics.html">el.Graphics</a></li>
+  <li><a href="../classes/el.MidiBuffer.html">el.MidiBuffer</a></li>
+  <li><a href="../classes/el.MidiMessage.html">el.MidiMessage</a></li>
+  <li><a href="../classes/el.MouseEvent.html">el.MouseEvent</a></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Point.html">el.Point</a></li>
+  <li><a href="../classes/el.Range.html">el.Range</a></li>
+  <li><a href="../classes/el.Rectangle.html">el.Rectangle</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.Slider.html">el.Slider</a></li>
+  <li><a href="../classes/el.TextButton.html">el.TextButton</a></li>
+  <li><a href="../classes/el.View.html">el.View</a></li>
+  <li><a href="../classes/el.Widget.html">el.Widget</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+  <li><a href="../classes/el.DSPScriptPosition.html">el.DSPScriptPosition</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+  <li><a href="../examples/channelize.lua.html">channelize.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>el.bytes</code></h1>
+<p>Manage raw byte arrays.</p>
+<p>
+
+</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Author</strong>: Michael Fisher</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#new">new (size)</a></td>
+	<td class="summary">Create a new byte array.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#free">free (bytes)</a></td>
+	<td class="summary">Free used memory.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get">get (obj, index)</a></td>
+	<td class="summary">Get a byte from the array.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#rawget">rawget (data, index)</a></td>
+	<td class="summary">Get a byte from a raw memory block.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#set">set (obj, index, value)</a></td>
+	<td class="summary">Set a byte in the array.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#rawset">rawset (data, index, value)</a></td>
+	<td class="summary">Set a byte in the array.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#toraw">toraw (obj)</a></td>
+	<td class="summary">Get the raw data as lightuserdata.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#size">size (obj)</a></td>
+	<td class="summary">Returns the size in bytes.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pack">pack (b1, b2, b3, b4)</a></td>
+	<td class="summary">Pack 4 bytes in a 64bit integer.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "new"></a>
+    <strong>new (size)</strong>
+    </dt>
+    <dd>
+    Create a new byte array.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">size</span>
+            <span class="types"><span class="type">integer</span></span>
+         Size in bytes to allocate
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">el.Bytes</span></span>
+        The new byte array.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "free"></a>
+    <strong>free (bytes)</strong>
+    </dt>
+    <dd>
+    Free used memory.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">bytes</span>
+         The array to free
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "get"></a>
+    <strong>get (obj, index)</strong>
+    </dt>
+    <dd>
+    Get a byte from the array.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">obj</span>
+            <span class="types"><span class="type">el.Bytes</span></span>
+         The Bytes to retrieve from
+        </li>
+        <li><span class="parameter">index</span>
+            <span class="types"><span class="type">integer</span></span>
+         Index in the array
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "rawget"></a>
+    <strong>rawget (data, index)</strong>
+    </dt>
+    <dd>
+    Get a byte from a raw memory block.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">data</span>
+            <span class="types"><span class="type">lightuserdata</span></span>
+         Raw data pointer.
+        </li>
+        <li><span class="parameter">index</span>
+            <span class="types"><span class="type">integer</span></span>
+         Index in the array
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Raw access is useful when reading MIDI data like SysEx.
+</span><span class="keyword">local</span> msg = <span class="function-name">get_the_message</span>() <span class="comment">-- msg is a <a href="../classes/el.MidiMessage.html#">el.MidiMessage</a>
+</span><span class="keyword">if</span> msg:<span class="function-name">isSysEx</span>() <span class="keyword">then</span>
+  <span class="keyword">local</span> data, _ = msg:<span class="function-name">sysExData</span>()
+  <span class="comment">-- its "1 + .." because MIDI channels start at one, and the data is zero indexed
+</span>  <span class="keyword">local</span> sysexValue = bytes.<span class="global">rawget</span> (data, <span class="number">5</span>)
+  <span class="comment">-- special sysex handling follows...
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "set"></a>
+    <strong>set (obj, index, value)</strong>
+    </dt>
+    <dd>
+    Set a byte in the array.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">obj</span>
+            <span class="types"><span class="type">el.Bytes</span></span>
+         The Bytes object to modify
+        </li>
+        <li><span class="parameter">index</span>
+            <span class="types"><span class="type">integer</span></span>
+         Index in the array
+        </li>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">integer</span></span>
+         Value to set in the range 0x00 to 0xFF inclusive
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "rawset"></a>
+    <strong>rawset (data, index, value)</strong>
+    </dt>
+    <dd>
+    Set a byte in the array.
+ Sets a byte in a raw data buffer.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">data</span>
+            <span class="types"><span class="type">lightuserdata</span></span>
+         Target bytes to modify
+        </li>
+        <li><span class="parameter">index</span>
+            <span class="types"><span class="type">integer</span></span>
+         Index in the array
+        </li>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">integer</span></span>
+         Value to set in the range 0x00 to 0xFF inclusive
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "toraw"></a>
+    <strong>toraw (obj)</strong>
+    </dt>
+    <dd>
+    Get the raw data as lightuserdata.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">obj</span>
+            <span class="types"><span class="type">el.Bytes</span></span>
+         The byte array to get raw data from.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">el.Bytes</span></span>
+        The new byte array.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "size"></a>
+    <strong>size (obj)</strong>
+    </dt>
+    <dd>
+    Returns the size in bytes.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">obj</span>
+            <span class="types"><span class="type">el.Bytes</span></span>
+         The Bytes object to check.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The size in bytes.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pack"></a>
+    <strong>pack (b1, b2, b3, b4)</strong>
+    </dt>
+    <dd>
+    Pack 4 bytes in a 64bit integer.
+ Undefined params are treated as zero. This function does not check arguments
+ and therefor can crash if client code passes in bad data.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">b1</span>
+            <span class="types"><span class="type">integer</span></span>
+         First byte
+        </li>
+        <li><span class="parameter">b2</span>
+            <span class="types"><span class="type">integer</span></span>
+         Second byte
+        </li>
+        <li><span class="parameter">b3</span>
+            <span class="types"><span class="type">integer</span></span>
+         Third byte
+        </li>
+        <li><span class="parameter">b4</span>
+            <span class="types"><span class="type">integer</span></span>
+         Fourth byte
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        Packed lua_Integer
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-02-17 21:40:47 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

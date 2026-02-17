@@ -1,0 +1,1063 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua API</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Attributes">Attributes </a></li>
+<li><a href="#Methods">Methods</a></li>
+<li><a href="#Class_Methods">Class Methods </a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.AudioBuffer.html">el.AudioBuffer</a></li>
+  <li><a href="../classes/el.Bounds.html">el.Bounds</a></li>
+  <li><a href="../classes/el.Commands.html">el.Commands</a></li>
+  <li><a href="../classes/el.Content.html">el.Content</a></li>
+  <li><a href="../classes/el.Context.html">el.Context</a></li>
+  <li><a href="../classes/el.Desktop.html">el.Desktop</a></li>
+  <li><a href="../classes/el.Graph.html">el.Graph</a></li>
+  <li><a href="../classes/el.GraphEditor.html">el.GraphEditor</a></li>
+  <li><a href="../classes/el.Graphics.html">el.Graphics</a></li>
+  <li><a href="../classes/el.MidiBuffer.html">el.MidiBuffer</a></li>
+  <li><a href="../classes/el.MidiMessage.html">el.MidiMessage</a></li>
+  <li><a href="../classes/el.MouseEvent.html">el.MouseEvent</a></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Point.html">el.Point</a></li>
+  <li><a href="../classes/el.Range.html">el.Range</a></li>
+  <li><strong>el.Rectangle</strong></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.Slider.html">el.Slider</a></li>
+  <li><a href="../classes/el.TextButton.html">el.TextButton</a></li>
+  <li><a href="../classes/el.View.html">el.View</a></li>
+  <li><a href="../classes/el.Widget.html">el.Widget</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+  <li><a href="../classes/el.DSPScriptPosition.html">el.DSPScriptPosition</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.bytes.html">el.bytes</a></li>
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.midi.html">el.midi</a></li>
+  <li><a href="../modules/el.object.html">el.object</a></li>
+  <li><a href="../modules/el.round.html">el.round</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+  <li><a href="../modules/el.strings.html">el.strings</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+  <li><a href="../examples/channelize.lua.html">channelize.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>el.Rectangle</code></h1>
+<p>A rectangle.</p>
+<p> The value type for this is a 64 bit float.</p>
+
+
+<h2><a href="#Attributes">Attributes </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.x">Rectangle.x</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.y">Rectangle.y</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.width">Rectangle.width</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.height">Rectangle.height</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.left">Rectangle.left</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.right">Rectangle.right</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.top">Rectangle.top</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.bottom">Rectangle.bottom</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:center">Rectangle:center ()</a></td>
+	<td class="summary">Returns the center point of this rect.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:centerX">Rectangle:centerX ()</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:centerY">Rectangle:centerY ()</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:empty">Rectangle:empty ()</a></td>
+	<td class="summary">Is empty.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:isFinite">Rectangle:isFinite ()</a></td>
+	<td class="summary">Is finite.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:translate">Rectangle:translate (dx, dy)</a></td>
+	<td class="summary">Translate the rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:translated">Rectangle:translated (dx, dy)</a></td>
+	<td class="summary">Returns a translated retctangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:expand">Rectangle:expand (dx, dy)</a></td>
+	<td class="summary">Expand the rectangle in size.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:expanded">Rectangle:expanded (dx, dy)</a></td>
+	<td class="summary">Returns expanded rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:expanded">Rectangle:expanded (dxy)</a></td>
+	<td class="summary">Returns expanded rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:reduce">Rectangle:reduce (dx, dy)</a></td>
+	<td class="summary">Reduce the rectangle in size.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:reduced">Rectangle:reduced (dx, dy)</a></td>
+	<td class="summary">Returns reduced rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:reduced">Rectangle:reduced (dxy)</a></td>
+	<td class="summary">Returns reduced rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:sliceTop">Rectangle:sliceTop (amt)</a></td>
+	<td class="summary">Slice top.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:sliceLeft">Rectangle:sliceLeft (amt)</a></td>
+	<td class="summary">Slice left.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:sliceRight">Rectangle:sliceRight (amt)</a></td>
+	<td class="summary">Slice right.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:sliceBottom">Rectangle:sliceBottom (amt)</a></td>
+	<td class="summary">Slice bottom.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:toInt">Rectangle:toInt ()</a></td>
+	<td class="summary">Convert to integer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:toEdges">Rectangle:toEdges ()</a></td>
+	<td class="summary">Convert to rounded integer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:toNumber">Rectangle:toNumber ()</a></td>
+	<td class="summary">Convert to number.</td>
+	</tr>
+</table>
+<h2><a href="#Class_Methods">Class Methods </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.new">Rectangle.new ()</a></td>
+	<td class="summary">Create a new empty rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.new">Rectangle.new (x, y, width, height)</a></td>
+	<td class="summary">Create a new rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.new">Rectangle.new (width, height)</a></td>
+	<td class="summary">Create a new rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.new">Rectangle.new (p1, p2)</a></td>
+	<td class="summary">Create a new rectangle from two points.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.fromcoords">Rectangle.fromcoords (x1, y1, x2, y2)</a></td>
+	<td class="summary">Create a new rectangle from a set of coordinates.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Attributes"></a>Attributes </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Rectangle.x"></a>
+    <strong>Rectangle.x</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.y"></a>
+    <strong>Rectangle.y</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.width"></a>
+    <strong>Rectangle.width</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.height"></a>
+    <strong>Rectangle.height</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.left"></a>
+    <strong>Rectangle.left</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.right"></a>
+    <strong>Rectangle.right</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.top"></a>
+    <strong>Rectangle.top</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.bottom"></a>
+    <strong>Rectangle.bottom</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Rectangle:center"></a>
+    <strong>Rectangle:center ()</strong>
+    </dt>
+    <dd>
+    Returns the center point of this rect.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/el.Point.html#">el.Point</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:centerX"></a>
+    <strong>Rectangle:centerX ()</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:centerY"></a>
+    <strong>Rectangle:centerY ()</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:empty"></a>
+    <strong>Rectangle:empty ()</strong>
+    </dt>
+    <dd>
+    Is empty.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        True if a 0,0,0,0 rectangle
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:isFinite"></a>
+    <strong>Rectangle:isFinite ()</strong>
+    </dt>
+    <dd>
+    Is finite.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        True if finite
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:translate"></a>
+    <strong>Rectangle:translate (dx, dy)</strong>
+    </dt>
+    <dd>
+    Translate the rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dx</span>
+
+
+
+        </li>
+        <li><span class="parameter">dy</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:translated"></a>
+    <strong>Rectangle:translated (dx, dy)</strong>
+    </dt>
+    <dd>
+    Returns a translated retctangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dx</span>
+
+
+
+        </li>
+        <li><span class="parameter">dy</span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        A translated rectangle
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:expand"></a>
+    <strong>Rectangle:expand (dx, dy)</strong>
+    </dt>
+    <dd>
+    Expand the rectangle in size.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dx</span>
+
+
+
+        </li>
+        <li><span class="parameter">dy</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:expanded"></a>
+    <strong>Rectangle:expanded (dx, dy)</strong>
+    </dt>
+    <dd>
+    Returns expanded rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dx</span>
+
+
+
+        </li>
+        <li><span class="parameter">dy</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:expanded"></a>
+    <strong>Rectangle:expanded (dxy)</strong>
+    </dt>
+    <dd>
+    Returns expanded rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dxy</span>
+         Delta X and Y
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:reduce"></a>
+    <strong>Rectangle:reduce (dx, dy)</strong>
+    </dt>
+    <dd>
+    Reduce the rectangle in size.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dx</span>
+
+
+
+        </li>
+        <li><span class="parameter">dy</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:reduced"></a>
+    <strong>Rectangle:reduced (dx, dy)</strong>
+    </dt>
+    <dd>
+    Returns reduced rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dx</span>
+
+
+
+        </li>
+        <li><span class="parameter">dy</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:reduced"></a>
+    <strong>Rectangle:reduced (dxy)</strong>
+    </dt>
+    <dd>
+    Returns reduced rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dxy</span>
+         Delta X and Y
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:sliceTop"></a>
+    <strong>Rectangle:sliceTop (amt)</strong>
+    </dt>
+    <dd>
+    Slice top.
+ Remomve and return a portion of this rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">amt</span>
+         Amount to remove
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:sliceLeft"></a>
+    <strong>Rectangle:sliceLeft (amt)</strong>
+    </dt>
+    <dd>
+    Slice left.
+ Remomve and return a portion of this rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">amt</span>
+         Amount to remove
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:sliceRight"></a>
+    <strong>Rectangle:sliceRight (amt)</strong>
+    </dt>
+    <dd>
+    Slice right.
+ Remomve and return a portion of this rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">amt</span>
+         Amount to remove
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:sliceBottom"></a>
+    <strong>Rectangle:sliceBottom (amt)</strong>
+    </dt>
+    <dd>
+    Slice bottom.
+ Remomve and return a portion of this rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">amt</span>
+         Amount to remove
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:toInt"></a>
+    <strong>Rectangle:toInt ()</strong>
+    </dt>
+    <dd>
+    Convert to integer.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/el.Bounds.html#">el.Bounds</a></span>
+        Converted rectangle
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:toEdges"></a>
+    <strong>Rectangle:toEdges ()</strong>
+    </dt>
+    <dd>
+    Convert to rounded integer.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/el.Bounds.html#">el.Bounds</a></span>
+        Converted rectangle
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:toNumber"></a>
+    <strong>Rectangle:toNumber ()</strong>
+    </dt>
+    <dd>
+    Convert to number.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Converted rectangle
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Class_Methods"></a>Class Methods </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Rectangle.new"></a>
+    <strong>Rectangle.new ()</strong>
+    </dt>
+    <dd>
+    Create a new empty rectangle.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/el.Rectangle.html#">el.Rectangle</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.new"></a>
+    <strong>Rectangle.new (x, y, width, height)</strong>
+    </dt>
+    <dd>
+    Create a new rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+
+
+
+        </li>
+        <li><span class="parameter">y</span>
+
+
+
+        </li>
+        <li><span class="parameter">width</span>
+
+
+
+        </li>
+        <li><span class="parameter">height</span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/el.Rectangle.html#">el.Rectangle</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.new"></a>
+    <strong>Rectangle.new (width, height)</strong>
+    </dt>
+    <dd>
+    Create a new rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">width</span>
+
+
+
+        </li>
+        <li><span class="parameter">height</span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/el.Rectangle.html#">el.Rectangle</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.new"></a>
+    <strong>Rectangle.new (p1, p2)</strong>
+    </dt>
+    <dd>
+    Create a new rectangle from two points.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">p1</span>
+            <span class="types"><a class="type" href="../classes/el.Point.html#">el.Point</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">p2</span>
+            <span class="types"><a class="type" href="../classes/el.Point.html#">el.Point</a></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/el.Rectangle.html#">el.Rectangle</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.fromcoords"></a>
+    <strong>Rectangle.fromcoords (x1, y1, x2, y2)</strong>
+    </dt>
+    <dd>
+    Create a new rectangle from a set of coordinates.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x1</span>
+            <span class="types"><span class="type">integer</span></span>
+         Left
+        </li>
+        <li><span class="parameter">y1</span>
+            <span class="types"><span class="type">integer</span></span>
+         Top
+        </li>
+        <li><span class="parameter">x2</span>
+            <span class="types"><span class="type">integer</span></span>
+         Right
+        </li>
+        <li><span class="parameter">y2</span>
+            <span class="types"><span class="type">integer</span></span>
+         Bottom
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/el.Rectangle.html#">el.Rectangle</a></span>
+        New rectangle
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-02-17 21:40:47 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

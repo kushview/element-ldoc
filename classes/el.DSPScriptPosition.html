@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua API</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Methods">Methods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.AudioBuffer.html">el.AudioBuffer</a></li>
+  <li><a href="../classes/el.Bounds.html">el.Bounds</a></li>
+  <li><a href="../classes/el.Commands.html">el.Commands</a></li>
+  <li><a href="../classes/el.Content.html">el.Content</a></li>
+  <li><a href="../classes/el.Context.html">el.Context</a></li>
+  <li><a href="../classes/el.Desktop.html">el.Desktop</a></li>
+  <li><a href="../classes/el.Graph.html">el.Graph</a></li>
+  <li><a href="../classes/el.GraphEditor.html">el.GraphEditor</a></li>
+  <li><a href="../classes/el.Graphics.html">el.Graphics</a></li>
+  <li><a href="../classes/el.MidiBuffer.html">el.MidiBuffer</a></li>
+  <li><a href="../classes/el.MidiMessage.html">el.MidiMessage</a></li>
+  <li><a href="../classes/el.MouseEvent.html">el.MouseEvent</a></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Point.html">el.Point</a></li>
+  <li><a href="../classes/el.Range.html">el.Range</a></li>
+  <li><a href="../classes/el.Rectangle.html">el.Rectangle</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.Slider.html">el.Slider</a></li>
+  <li><a href="../classes/el.TextButton.html">el.TextButton</a></li>
+  <li><a href="../classes/el.View.html">el.View</a></li>
+  <li><a href="../classes/el.Widget.html">el.Widget</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+  <li><strong>el.DSPScriptPosition</strong></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.bytes.html">el.bytes</a></li>
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.midi.html">el.midi</a></li>
+  <li><a href="../modules/el.object.html">el.object</a></li>
+  <li><a href="../modules/el.round.html">el.round</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+  <li><a href="../modules/el.strings.html">el.strings</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+  <li><a href="../examples/channelize.lua.html">channelize.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>el.DSPScriptPosition</code></h1>
+<p>Time information for DSP Scripts.</p>
+<p> An object of this type is passed to to a DSP Script's process function
+ conveying timing information.</p>
+
+
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#DSPScriptPosition:playing">DSPScriptPosition:playing ()</a></td>
+	<td class="summary">True if playing.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DSPScriptPosition:recording">DSPScriptPosition:recording ()</a></td>
+	<td class="summary">True if recording.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DSPScriptPosition:looping">DSPScriptPosition:looping ()</a></td>
+	<td class="summary">True if looping</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DSPScriptPosition:valid">DSPScriptPosition:valid ()</a></td>
+	<td class="summary">True if this position is valid.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DSPScriptPosition:frame">DSPScriptPosition:frame ()</a></td>
+	<td class="summary">Time in audio samples.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DSPScriptPosition:seconds">DSPScriptPosition:seconds ()</a></td>
+	<td class="summary">Time in seconds.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DSPScriptPosition:bpm">DSPScriptPosition:bpm ()</a></td>
+	<td class="summary">The current BPM.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DSPScriptPosition:beatsPerBar">DSPScriptPosition:beatsPerBar ()</a></td>
+	<td class="summary">Beats per bar e.g.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DSPScriptPosition:beatUnit">DSPScriptPosition:beatUnit ()</a></td>
+	<td class="summary">Denominator of a the time signature.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DSPScriptPosition:bar">DSPScriptPosition:bar ()</a></td>
+	<td class="summary">The current bar.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DSPScriptPosition:beat">DSPScriptPosition:beat ()</a></td>
+	<td class="summary">The current beat in terms of quarter note.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "DSPScriptPosition:playing"></a>
+    <strong>DSPScriptPosition:playing ()</strong>
+    </dt>
+    <dd>
+    True if playing.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "DSPScriptPosition:recording"></a>
+    <strong>DSPScriptPosition:recording ()</strong>
+    </dt>
+    <dd>
+    True if recording.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "DSPScriptPosition:looping"></a>
+    <strong>DSPScriptPosition:looping ()</strong>
+    </dt>
+    <dd>
+    True if looping
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "DSPScriptPosition:valid"></a>
+    <strong>DSPScriptPosition:valid ()</strong>
+    </dt>
+    <dd>
+    True if this position is valid.
+ All other methods are not reliable if this returns false.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "DSPScriptPosition:frame"></a>
+    <strong>DSPScriptPosition:frame ()</strong>
+    </dt>
+    <dd>
+    Time in audio samples.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The frame as an Integer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "DSPScriptPosition:seconds"></a>
+    <strong>DSPScriptPosition:seconds ()</strong>
+    </dt>
+    <dd>
+    Time in seconds.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Time in seconds as a number
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "DSPScriptPosition:bpm"></a>
+    <strong>DSPScriptPosition:bpm ()</strong>
+    </dt>
+    <dd>
+    The current BPM.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The bpm
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "DSPScriptPosition:beatsPerBar"></a>
+    <strong>DSPScriptPosition:beatsPerBar ()</strong>
+    </dt>
+    <dd>
+    Beats per bar e.g.  the numerator in a time signature
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The time signature numerator.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "DSPScriptPosition:beatUnit"></a>
+    <strong>DSPScriptPosition:beatUnit ()</strong>
+    </dt>
+    <dd>
+    Denominator of a the time signature.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The time signature denominator
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "DSPScriptPosition:bar"></a>
+    <strong>DSPScriptPosition:bar ()</strong>
+    </dt>
+    <dd>
+    The current bar.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The bar
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "DSPScriptPosition:beat"></a>
+    <strong>DSPScriptPosition:beat ()</strong>
+    </dt>
+    <dd>
+    The current beat in terms of quarter note.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The beat
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-02-17 21:40:47 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

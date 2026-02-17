@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua API</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+
+
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><strong>amp.lua</strong></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+  <li><a href="../examples/channelize.lua.html">channelize.lua</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.bytes.html">el.bytes</a></li>
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.midi.html">el.midi</a></li>
+  <li><a href="../modules/el.object.html">el.object</a></li>
+  <li><a href="../modules/el.round.html">el.round</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+  <li><a href="../modules/el.strings.html">el.strings</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.AudioBuffer.html">el.AudioBuffer</a></li>
+  <li><a href="../classes/el.Bounds.html">el.Bounds</a></li>
+  <li><a href="../classes/el.Commands.html">el.Commands</a></li>
+  <li><a href="../classes/el.Content.html">el.Content</a></li>
+  <li><a href="../classes/el.Context.html">el.Context</a></li>
+  <li><a href="../classes/el.Desktop.html">el.Desktop</a></li>
+  <li><a href="../classes/el.Graph.html">el.Graph</a></li>
+  <li><a href="../classes/el.GraphEditor.html">el.GraphEditor</a></li>
+  <li><a href="../classes/el.Graphics.html">el.Graphics</a></li>
+  <li><a href="../classes/el.MidiBuffer.html">el.MidiBuffer</a></li>
+  <li><a href="../classes/el.MidiMessage.html">el.MidiMessage</a></li>
+  <li><a href="../classes/el.MouseEvent.html">el.MouseEvent</a></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Point.html">el.Point</a></li>
+  <li><a href="../classes/el.Range.html">el.Range</a></li>
+  <li><a href="../classes/el.Rectangle.html">el.Rectangle</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.Slider.html">el.Slider</a></li>
+  <li><a href="../classes/el.TextButton.html">el.TextButton</a></li>
+  <li><a href="../classes/el.View.html">el.View</a></li>
+  <li><a href="../classes/el.Widget.html">el.Widget</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+  <li><a href="../classes/el.DSPScriptPosition.html">el.DSPScriptPosition</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+    <h2>amp.lua</h2>
+<pre>
+<span class="comment">--- Stereo Amplifier in Lua.
+</span><span class="comment">--
+</span><span class="comment">-- The code contained implements a simple stereo amplifier plugin. It does not
+</span><span class="comment">-- try to smooth the volume parameter and could cause zipper noise.
+</span><span class="comment">--
+</span><span class="comment">-- @script      amp
+</span><span class="comment">-- @type        DSP
+</span><span class="comment">-- @license     GPL v3
+</span><span class="comment">-- @author      Michael Fisher
+</span>
+<span class="keyword">local</span> audio  = <span class="global">require</span> (<span class="string">'el.audio'</span>)
+
+<span class="comment">--- Gain parameters.
+</span><span class="comment">-- Used for fading between changes in volume
+</span><span class="keyword">local</span> gain1 = <span class="number">1.0</span>
+<span class="keyword">local</span> gain2 = <span class="number">1.0</span>
+
+<span class="comment">--- Return a table of audio/midi inputs and outputs.
+</span><span class="comment">-- This plugin supports stereo in/out with no MIDI
+</span><span class="keyword">local</span> <span class="keyword">function</span> <span class="function-name">amp_layout</span>()
+    <span class="keyword">return</span> {
+        audio   = { <span class="number">2</span>, <span class="number">2</span> },
+        midi    = { <span class="number">0</span>, <span class="number">0</span> },
+        control = {{
+            {
+                name        = <span class="string">"Volume"</span>,
+                symbol      = <span class="string">"volume"</span>,
+                label       = <span class="string">"dB"</span>,
+                min         = -<span class="number">90.0</span>,
+                max         = <span class="number">24.0</span>,
+                default     = <span class="number">0.0</span>
+            }
+        }}
+    }
+<span class="keyword">end</span>
+
+<span class="comment">--- Render audio and midi.
+</span><span class="comment">-- Use the provided audio and midi objects to process your plugin
+</span><span class="comment">-- @param a The source el.AudioBuffer
+</span><span class="comment">-- @param m The source el.MidiPipe
+</span><span class="comment">-- @param p Parameters
+</span><span class="comment">-- @param c Controls
+</span><span class="comment">-- @param t Time info
+</span><span class="keyword">local</span> <span class="keyword">function</span> <span class="function-name">amp_process</span> (a, m, p, c, t)
+    gain2 = audio.<span class="function-name">togain</span> (p [<span class="number">1</span>])
+    a:<span class="function-name">fade</span> (gain1, gain2)
+    gain1 = gain2
+<span class="keyword">end</span>
+
+<span class="keyword">return</span> {
+    <span class="global">type</span>        = <span class="string">'DSP'</span>,
+    layout      = amp_layout,
+    process     = amp_process
+}
+
+<span class="comment">-- SPDX-FileCopyrightText: Copyright (C) Kushview, LLC.
+</span><span class="comment">-- SPDX-License-Identifier: GPL-3.0-or-later</span></pre>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-02-17 21:40:47 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

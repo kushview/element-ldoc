@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua API</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Attributes">Attributes </a></li>
+<li><a href="#Methods">Methods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.AudioBuffer.html">el.AudioBuffer</a></li>
+  <li><a href="../classes/el.Bounds.html">el.Bounds</a></li>
+  <li><a href="../classes/el.Commands.html">el.Commands</a></li>
+  <li><a href="../classes/el.Content.html">el.Content</a></li>
+  <li><a href="../classes/el.Context.html">el.Context</a></li>
+  <li><a href="../classes/el.Desktop.html">el.Desktop</a></li>
+  <li><a href="../classes/el.Graph.html">el.Graph</a></li>
+  <li><a href="../classes/el.GraphEditor.html">el.GraphEditor</a></li>
+  <li><a href="../classes/el.Graphics.html">el.Graphics</a></li>
+  <li><a href="../classes/el.MidiBuffer.html">el.MidiBuffer</a></li>
+  <li><a href="../classes/el.MidiMessage.html">el.MidiMessage</a></li>
+  <li><a href="../classes/el.MouseEvent.html">el.MouseEvent</a></li>
+  <li><strong>el.Node</strong></li>
+  <li><a href="../classes/el.Point.html">el.Point</a></li>
+  <li><a href="../classes/el.Range.html">el.Range</a></li>
+  <li><a href="../classes/el.Rectangle.html">el.Rectangle</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.Slider.html">el.Slider</a></li>
+  <li><a href="../classes/el.TextButton.html">el.TextButton</a></li>
+  <li><a href="../classes/el.View.html">el.View</a></li>
+  <li><a href="../classes/el.Widget.html">el.Widget</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+  <li><a href="../classes/el.DSPScriptPosition.html">el.DSPScriptPosition</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.bytes.html">el.bytes</a></li>
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.midi.html">el.midi</a></li>
+  <li><a href="../modules/el.object.html">el.object</a></li>
+  <li><a href="../modules/el.round.html">el.round</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+  <li><a href="../modules/el.strings.html">el.strings</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+  <li><a href="../examples/channelize.lua.html">channelize.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>el.Node</code></h1>
+<p>The Node Model.</p>
+<p> Representation of a Node. Is an el.Model</p>
+
+
+<h2><a href="#Attributes">Attributes </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Node.name">Node.name</a></td>
+	<td class="summary">The node's name (<a href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a>).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.valid">Node.valid</a></td>
+	<td class="summary">Validity flag (bool).</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Node:hasEditor">Node:hasEditor ()</a></td>
+	<td class="summary">Returns true if this node has an editor.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:displayName">Node:displayName ()</a></td>
+	<td class="summary">Returns the display name of this node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:pluginName">Node:pluginName ()</a></td>
+	<td class="summary">Returns the original plugin name of this node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:hasModifiedName">Node:hasModifiedName ()</a></td>
+	<td class="summary">Returns true if the node has been renamed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:uuidString">Node:uuidString ()</a></td>
+	<td class="summary">Returns a session-wide unique ID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:nodeId">Node:nodeId ()</a></td>
+	<td class="summary">Returns a graph-wide unique ID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:nodeType">Node:nodeType ()</a></td>
+	<td class="summary">Returns the type of this node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:isGraph">Node:isGraph ()</a></td>
+	<td class="summary">Returns true if this is a graph.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:isRoot">Node:isRoot ()</a></td>
+	<td class="summary">Returns true if this is a root graph.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node::toXmlString">Node::toXmlString ()</a></td>
+	<td class="summary">Convert to XML string.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:saveState">Node:saveState ()</a></td>
+	<td class="summary">Save state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:restoreState">Node:restoreState ()</a></td>
+	<td class="summary">Restore state.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Attributes"></a>Attributes </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Node.name"></a>
+    <strong>Node.name</strong>
+    </dt>
+    <dd>
+    The node's name (<a href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a>).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.valid"></a>
+    <strong>Node.valid</strong>
+    </dt>
+    <dd>
+    Validity flag (bool).
+ False if this node isn't valid.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Node:hasEditor"></a>
+    <strong>Node:hasEditor ()</strong>
+    </dt>
+    <dd>
+    Returns true if this node has an editor.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool True if yes.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:displayName"></a>
+    <strong>Node:displayName ()</strong>
+    </dt>
+    <dd>
+    Returns the display name of this node.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        The name to use for display.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:pluginName"></a>
+    <strong>Node:pluginName ()</strong>
+    </dt>
+    <dd>
+    Returns the original plugin name of this node.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        The plugin name.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:hasModifiedName"></a>
+    <strong>Node:hasModifiedName ()</strong>
+    </dt>
+    <dd>
+    Returns true if the node has been renamed.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool True if modified.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:uuidString"></a>
+    <strong>Node:uuidString ()</strong>
+    </dt>
+    <dd>
+    Returns a session-wide unique ID.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:nodeId"></a>
+    <strong>Node:nodeId ()</strong>
+    </dt>
+    <dd>
+    Returns a graph-wide unique ID.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:nodeType"></a>
+    <strong>Node:nodeType ()</strong>
+    </dt>
+    <dd>
+    Returns the type of this node.
+ Usage of this method is only used to determine if the node is a
+ graph or not.  Subject to change and add more types.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:isGraph"></a>
+    <strong>Node:isGraph ()</strong>
+    </dt>
+    <dd>
+    Returns true if this is a graph.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:isRoot"></a>
+    <strong>Node:isRoot ()</strong>
+    </dt>
+    <dd>
+    Returns true if this is a root graph.
+ These exists as top level graphs in the <a href="../classes/el.Session.html#">el.Session</a>
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node::toXmlString"></a>
+    <strong>Node::toXmlString ()</strong>
+    </dt>
+    <dd>
+    Convert to XML string.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:saveState"></a>
+    <strong>Node:saveState ()</strong>
+    </dt>
+    <dd>
+    Save state.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:restoreState"></a>
+    <strong>Node:restoreState ()</strong>
+    </dt>
+    <dd>
+    Restore state.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-02-17 21:40:47 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

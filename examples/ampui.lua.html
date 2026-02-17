@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua API</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+
+
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><strong>ampui.lua</strong></li>
+  <li><a href="../examples/channelize.lua.html">channelize.lua</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.bytes.html">el.bytes</a></li>
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.midi.html">el.midi</a></li>
+  <li><a href="../modules/el.object.html">el.object</a></li>
+  <li><a href="../modules/el.round.html">el.round</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+  <li><a href="../modules/el.strings.html">el.strings</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.AudioBuffer.html">el.AudioBuffer</a></li>
+  <li><a href="../classes/el.Bounds.html">el.Bounds</a></li>
+  <li><a href="../classes/el.Commands.html">el.Commands</a></li>
+  <li><a href="../classes/el.Content.html">el.Content</a></li>
+  <li><a href="../classes/el.Context.html">el.Context</a></li>
+  <li><a href="../classes/el.Desktop.html">el.Desktop</a></li>
+  <li><a href="../classes/el.Graph.html">el.Graph</a></li>
+  <li><a href="../classes/el.GraphEditor.html">el.GraphEditor</a></li>
+  <li><a href="../classes/el.Graphics.html">el.Graphics</a></li>
+  <li><a href="../classes/el.MidiBuffer.html">el.MidiBuffer</a></li>
+  <li><a href="../classes/el.MidiMessage.html">el.MidiMessage</a></li>
+  <li><a href="../classes/el.MouseEvent.html">el.MouseEvent</a></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Point.html">el.Point</a></li>
+  <li><a href="../classes/el.Range.html">el.Range</a></li>
+  <li><a href="../classes/el.Rectangle.html">el.Rectangle</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.Slider.html">el.Slider</a></li>
+  <li><a href="../classes/el.TextButton.html">el.TextButton</a></li>
+  <li><a href="../classes/el.View.html">el.View</a></li>
+  <li><a href="../classes/el.Widget.html">el.Widget</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+  <li><a href="../classes/el.DSPScriptPosition.html">el.DSPScriptPosition</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+    <h2>ampui.lua</h2>
+<pre>
+<span class="comment">--- Editor for <code>amp</code> DSP script.
+</span><span class="comment">-- @script ampui
+</span><span class="comment">-- @type DSPUI amp
+</span>
+<span class="keyword">local</span> Widget        = <span class="global">require</span> (<span class="string">'el.Widget'</span>)
+<span class="keyword">local</span> Slider        = <span class="global">require</span> (<span class="string">'el.Slider'</span>)
+<span class="keyword">local</span> object        = <span class="global">require</span> (<span class="string">'el.object'</span>)
+<span class="keyword">local</span> script        = <span class="global">require</span> (<span class="string">'el.script'</span>)
+
+<span class="keyword">local</span> bgcolor       = <span class="number">0xff545454</span>
+<span class="keyword">local</span> fgcolor       = <span class="number">0xffffffff</span>
+
+<span class="comment">-- Derive a new widget type for the amp editor.
+</span><span class="keyword">local</span> Editor = <span class="function-name">object</span> (Widget)
+
+<span class="keyword">function</span> Editor:<span class="function-name">init</span> (ctx)
+    <span class="comment">-- Invoke the parent class' init method
+</span>    Widget.<span class="function-name">init</span> (self)
+
+    <span class="keyword">local</span> volume = ctx.params [<span class="number">1</span>]
+
+    self.knob = self:<span class="function-name">add</span> (object.<span class="function-name">new</span> (Slider))
+    self.knob.style = Slider.Rotary
+    self.knob:<span class="function-name">setTextBoxStyle</span> (Slider.TextBoxBelow, <span class="keyword">true</span>, <span class="number">52</span>, <span class="number">26</span>)
+    self.knob:<span class="function-name">setRange</span> (-<span class="number">90</span>, <span class="number">24</span>, <span class="number">0.01</span>)
+    self.knob:<span class="function-name">setValue</span> (volume:<span class="function-name">get</span>(), <span class="keyword">false</span>)
+    self.knob.dragging  = <span class="keyword">false</span>
+    self.knob.dragStart = <span class="keyword">function</span>() self.knob.dragging = <span class="keyword">true</span> <span class="keyword">end</span>
+    self.knob.dragEnd   = <span class="keyword">function</span>() self.knob.dragging = <span class="keyword">false</span> <span class="keyword">end</span>
+    self.knob.changed   = <span class="keyword">function</span>()
+        <span class="keyword">if</span> <span class="keyword">not</span> self.knob.dragging <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span>
+        volume:<span class="function-name">set</span> (self.knob:<span class="function-name">value</span>(), <span class="keyword">false</span>)
+    <span class="keyword">end</span>
+
+    volume.changed = <span class="keyword">function</span>()
+        self.knob:<span class="function-name">setValue</span> (volume:<span class="function-name">get</span>(), <span class="keyword">false</span>)
+    <span class="keyword">end</span>
+
+    self:<span class="function-name">resize</span> (<span class="number">180</span>, <span class="number">170</span>)
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> Editor:<span class="function-name">paint</span> (g)
+    g:<span class="function-name">fillAll</span> (bgcolor)
+    g:<span class="function-name">setColor</span> (fgcolor)
+    g:<span class="function-name">drawText</span> (<span class="string">"AMP"</span>, <span class="number">0</span>, <span class="number">0</span>, self.width, <span class="number">30</span>)
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> Editor:<span class="function-name">resized</span>()
+    <span class="keyword">local</span> r = self:<span class="function-name">localBounds</span>()
+    self.knob:<span class="function-name">setBounds</span> (r:<span class="function-name">reduced</span> (<span class="number">20</span>))
+<span class="keyword">end</span>
+
+<span class="comment">-- Editor factory function.
+</span><span class="keyword">local</span> <span class="keyword">function</span> <span class="function-name">instantiate</span> (ctx)
+    <span class="keyword">return</span> object.<span class="function-name">new</span> (Editor, ctx)
+<span class="keyword">end</span>
+
+<span class="keyword">return</span> {
+    <span class="global">type</span>        = <span class="string">'DSPUI'</span>,
+    instantiate = instantiate
+}
+
+<span class="comment">-- SPDX-FileCopyrightText: Copyright (C) Kushview, LLC.
+</span><span class="comment">-- SPDX-License-Identifier: GPL-3.0-or-later</span></pre>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-02-17 21:40:47 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

@@ -1,0 +1,987 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua API</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Attributes">Attributes </a></li>
+<li><a href="#Methods">Methods</a></li>
+<li><a href="#Handlers">Handlers </a></li>
+<li><a href="#Class_Methods">Class Methods </a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.AudioBuffer.html">el.AudioBuffer</a></li>
+  <li><a href="../classes/el.Bounds.html">el.Bounds</a></li>
+  <li><a href="../classes/el.Commands.html">el.Commands</a></li>
+  <li><a href="../classes/el.Content.html">el.Content</a></li>
+  <li><a href="../classes/el.Context.html">el.Context</a></li>
+  <li><a href="../classes/el.Desktop.html">el.Desktop</a></li>
+  <li><a href="../classes/el.Graph.html">el.Graph</a></li>
+  <li><a href="../classes/el.GraphEditor.html">el.GraphEditor</a></li>
+  <li><a href="../classes/el.Graphics.html">el.Graphics</a></li>
+  <li><a href="../classes/el.MidiBuffer.html">el.MidiBuffer</a></li>
+  <li><a href="../classes/el.MidiMessage.html">el.MidiMessage</a></li>
+  <li><a href="../classes/el.MouseEvent.html">el.MouseEvent</a></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Point.html">el.Point</a></li>
+  <li><a href="../classes/el.Range.html">el.Range</a></li>
+  <li><a href="../classes/el.Rectangle.html">el.Rectangle</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.Slider.html">el.Slider</a></li>
+  <li><a href="../classes/el.TextButton.html">el.TextButton</a></li>
+  <li><a href="../classes/el.View.html">el.View</a></li>
+  <li><strong>el.Widget</strong></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+  <li><a href="../classes/el.DSPScriptPosition.html">el.DSPScriptPosition</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.bytes.html">el.bytes</a></li>
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.midi.html">el.midi</a></li>
+  <li><a href="../modules/el.object.html">el.object</a></li>
+  <li><a href="../modules/el.round.html">el.round</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+  <li><a href="../modules/el.strings.html">el.strings</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+  <li><a href="../examples/channelize.lua.html">channelize.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>el.Widget</code></h1>
+<p>A GUI Widget.</p>
+<p> Is defined with <a href="../modules/el.object.html#">el.object</a> and can be inherrited.  Objects must be
+ instantiateed using <a href="../modules/el.object.html#new">object.new</a></p>
+
+
+<h2><a href="#Attributes">Attributes </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Widget.name">Widget.name</a></td>
+	<td class="summary">Widget name (string).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.x">Widget.x</a></td>
+	<td class="summary">X position (readonly).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.y">Widget.y</a></td>
+	<td class="summary">Y position (readonly).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.width">Widget.width</a></td>
+	<td class="summary">Widget width (readonly).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.height">Widget.height</a></td>
+	<td class="summary">Widget height (readonly).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.visible">Widget.visible</a></td>
+	<td class="summary">Widget visibility (bool).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.opaque">Widget.opaque</a></td>
+	<td class="summary">Widget is opaque (bool).</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Widget:add">Widget:add (widget[, zorder])</a></td>
+	<td class="summary">Add a child widget.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:elevate">Widget:elevate ()</a></td>
+	<td class="summary">Elevate this widget to toplevel status.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:bounds">Widget:bounds ()</a></td>
+	<td class="summary">Returns the bounding box.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:setBounds">Widget:setBounds (x, y, w, h)</a></td>
+	<td class="summary">Change the bounding box.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:setBounds">Widget:setBounds (bounds)</a></td>
+	<td class="summary">Change the bounding box.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:localBounds">Widget:localBounds ()</a></td>
+	<td class="summary">Local bounding box.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:right">Widget:right ()</a></td>
+	<td class="summary">Widget right edge.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:bottom">Widget:bottom ()</a></td>
+	<td class="summary">Widget bottom edge (int).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:screenX">Widget:screenX ()</a></td>
+	<td class="summary">Widget Screen X position (int).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:screenY">Widget:screenY ()</a></td>
+	<td class="summary">Widget Screen Y position (int).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:repaint">Widget:repaint ()</a></td>
+	<td class="summary">Repaint the entire widget.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:repaint">Widget:repaint (b)</a></td>
+	<td class="summary">Repaint a section.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:repaint">Widget:repaint (x, y, w, h)</a></td>
+	<td class="summary">Repaint section.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:resize">Widget:resize (w, h)</a></td>
+	<td class="summary">Resize the widget.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:toFront">Widget:toFront (focus)</a></td>
+	<td class="summary">Bring to front.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:toBack">Widget:toBack ()</a></td>
+	<td class="summary">To Back.</td>
+	</tr>
+</table>
+<h2><a href="#Handlers">Handlers </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Widget:resized">Widget:resized ()</a></td>
+	<td class="summary">Called when the widget resizes.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:paint">Widget:paint (g)</a></td>
+	<td class="summary">Draw your widget here.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:mouseMove">Widget:mouseMove (ev)</a></td>
+	<td class="summary">Called when the mouse is moving.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:mouseEnter">Widget:mouseEnter (ev)</a></td>
+	<td class="summary">Called when the mouse enters your widget.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:mouseExit">Widget:mouseExit (ev)</a></td>
+	<td class="summary">Called when the mouse exits your widget.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:mouseDrag">Widget:mouseDrag (ev)</a></td>
+	<td class="summary">Called when the mouse is dragging.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:mouseDown">Widget:mouseDown (ev)</a></td>
+	<td class="summary">Called when the mouse is pressed down.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:mouseUp">Widget:mouseUp (ev)</a></td>
+	<td class="summary">Called when the mouse has been released.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:mouseDoubleClick">Widget:mouseDoubleClick (ev)</a></td>
+	<td class="summary">Called when the mouse is double clicked.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:mouseWheelMove">Widget:mouseWheelMove (ev, details)</a></td>
+	<td class="summary">Called when the mouse is double clicked.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:mouseWheelMove">Widget:mouseWheelMove (ev, scale)</a></td>
+	<td class="summary">Called when the mouse is double clicked.</td>
+	</tr>
+</table>
+<h2><a href="#Class_Methods">Class Methods </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Widget.init">Widget.init ()</a></td>
+	<td class="summary">Initialize the widget.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Attributes"></a>Attributes </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Widget.name"></a>
+    <strong>Widget.name</strong>
+    </dt>
+    <dd>
+    Widget name (string).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget.x"></a>
+    <strong>Widget.x</strong>
+    </dt>
+    <dd>
+    X position (readonly).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget.y"></a>
+    <strong>Widget.y</strong>
+    </dt>
+    <dd>
+    Y position (readonly).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget.width"></a>
+    <strong>Widget.width</strong>
+    </dt>
+    <dd>
+    Widget width (readonly).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget.height"></a>
+    <strong>Widget.height</strong>
+    </dt>
+    <dd>
+    Widget height (readonly).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget.visible"></a>
+    <strong>Widget.visible</strong>
+    </dt>
+    <dd>
+    Widget visibility (bool).
+ Shows or hides this Widget
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget.opaque"></a>
+    <strong>Widget.opaque</strong>
+    </dt>
+    <dd>
+    Widget is opaque (bool).
+ If set true you must fill the entire Widget background.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Widget:add"></a>
+    <strong>Widget:add (widget[, zorder])</strong>
+    </dt>
+    <dd>
+    Add a child widget.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">widget</span>
+            <span class="types"><a class="type" href="../classes/el.Widget.html#">el.Widget</a></span>
+         Widget to add
+        </li>
+        <li><span class="parameter">zorder</span>
+            <span class="types"><span class="type">integer</span></span>
+         Z-order
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:elevate"></a>
+    <strong>Widget:elevate ()</strong>
+    </dt>
+    <dd>
+    Elevate this widget to toplevel status.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:bounds"></a>
+    <strong>Widget:bounds ()</strong>
+    </dt>
+    <dd>
+    Returns the bounding box.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:setBounds"></a>
+    <strong>Widget:setBounds (x, y, w, h)</strong>
+    </dt>
+    <dd>
+    Change the bounding box.
+ The coords returned is relative to the top/left of the widget's parent.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">integer</span></span>
+         X pos
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">integer</span></span>
+         Y pos
+        </li>
+        <li><span class="parameter">w</span>
+            <span class="types"><span class="type">integer</span></span>
+         Width
+        </li>
+        <li><span class="parameter">h</span>
+            <span class="types"><span class="type">integer</span></span>
+         Height
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:setBounds"></a>
+    <strong>Widget:setBounds (bounds)</strong>
+    </dt>
+    <dd>
+    Change the bounding box.
+ The coords returned is relative to the top/left of the widget's parent.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">bounds</span>
+            <span class="types"><span class="type">mixed</span></span>
+         New bounds as a el.Bounds or table
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Can also set a table. e.g.
+</span>widget:<span class="function-name">setBounds</span> ({
+    x      = <span class="number">0</span>,
+    y      = <span class="number">0</span>,
+    width  = <span class="number">100</span>,
+    height = <span class="number">200</span>
+})</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Widget:localBounds"></a>
+    <strong>Widget:localBounds ()</strong>
+    </dt>
+    <dd>
+    Local bounding box.
+ Same as bounds with zero x and y coords
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:right"></a>
+    <strong>Widget:right ()</strong>
+    </dt>
+    <dd>
+    Widget right edge.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:bottom"></a>
+    <strong>Widget:bottom ()</strong>
+    </dt>
+    <dd>
+    Widget bottom edge (int).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:screenX"></a>
+    <strong>Widget:screenX ()</strong>
+    </dt>
+    <dd>
+    Widget Screen X position (int).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:screenY"></a>
+    <strong>Widget:screenY ()</strong>
+    </dt>
+    <dd>
+    Widget Screen Y position (int).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:repaint"></a>
+    <strong>Widget:repaint ()</strong>
+    </dt>
+    <dd>
+    Repaint the entire widget.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:repaint"></a>
+    <strong>Widget:repaint (b)</strong>
+    </dt>
+    <dd>
+    Repaint a section.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">b</span>
+            <span class="types"><a class="type" href="../classes/el.Bounds.html#">el.Bounds</a></span>
+         Area to repaint
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:repaint"></a>
+    <strong>Widget:repaint (x, y, w, h)</strong>
+    </dt>
+    <dd>
+    Repaint section.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">integer</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">integer</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">w</span>
+            <span class="types"><span class="type">integer</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">h</span>
+            <span class="types"><span class="type">integer</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:resize"></a>
+    <strong>Widget:resize (w, h)</strong>
+    </dt>
+    <dd>
+    Resize the widget.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">w</span>
+            <span class="types"><span class="type">integer</span></span>
+         New width
+        </li>
+        <li><span class="parameter">h</span>
+            <span class="types"><span class="type">integer</span></span>
+         New height
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:toFront"></a>
+    <strong>Widget:toFront (focus)</strong>
+    </dt>
+    <dd>
+    Bring to front.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">focus</span>
+            <span class="types"><span class="type">boolean</span></span>
+         If true, will also try to focus this widget.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:toBack"></a>
+    <strong>Widget:toBack ()</strong>
+    </dt>
+    <dd>
+    To Back.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Handlers"></a>Handlers </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Widget:resized"></a>
+    <strong>Widget:resized ()</strong>
+    </dt>
+    <dd>
+    Called when the widget resizes.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:paint"></a>
+    <strong>Widget:paint (g)</strong>
+    </dt>
+    <dd>
+    Draw your widget here.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">g</span>
+            <span class="types"><a class="type" href="../classes/el.Graphics.html#">el.Graphics</a></span>
+         The graphics object to paint with
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:mouseMove"></a>
+    <strong>Widget:mouseMove (ev)</strong>
+    </dt>
+    <dd>
+    Called when the mouse is moving.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ev</span>
+            <span class="types"><a class="type" href="../classes/el.MouseEvent.html#">el.MouseEvent</a></span>
+         The event to process
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:mouseEnter"></a>
+    <strong>Widget:mouseEnter (ev)</strong>
+    </dt>
+    <dd>
+    Called when the mouse enters your widget.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ev</span>
+            <span class="types"><a class="type" href="../classes/el.MouseEvent.html#">el.MouseEvent</a></span>
+         The event to process
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:mouseExit"></a>
+    <strong>Widget:mouseExit (ev)</strong>
+    </dt>
+    <dd>
+    Called when the mouse exits your widget.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ev</span>
+            <span class="types"><a class="type" href="../classes/el.MouseEvent.html#">el.MouseEvent</a></span>
+         The event to process
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:mouseDrag"></a>
+    <strong>Widget:mouseDrag (ev)</strong>
+    </dt>
+    <dd>
+    Called when the mouse is dragging.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ev</span>
+            <span class="types"><a class="type" href="../classes/el.MouseEvent.html#">el.MouseEvent</a></span>
+         The event to process
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:mouseDown"></a>
+    <strong>Widget:mouseDown (ev)</strong>
+    </dt>
+    <dd>
+    Called when the mouse is pressed down.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ev</span>
+            <span class="types"><a class="type" href="../classes/el.MouseEvent.html#">el.MouseEvent</a></span>
+         The event to process
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:mouseUp"></a>
+    <strong>Widget:mouseUp (ev)</strong>
+    </dt>
+    <dd>
+    Called when the mouse has been released.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ev</span>
+            <span class="types"><a class="type" href="../classes/el.MouseEvent.html#">el.MouseEvent</a></span>
+         The event to process
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:mouseDoubleClick"></a>
+    <strong>Widget:mouseDoubleClick (ev)</strong>
+    </dt>
+    <dd>
+    Called when the mouse is double clicked.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ev</span>
+            <span class="types"><a class="type" href="../classes/el.MouseEvent.html#">el.MouseEvent</a></span>
+         The event to process
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:mouseWheelMove"></a>
+    <strong>Widget:mouseWheelMove (ev, details)</strong>
+    </dt>
+    <dd>
+    Called when the mouse is double clicked.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ev</span>
+            <span class="types"><a class="type" href="../classes/el.MouseEvent.html#">el.MouseEvent</a></span>
+         The event to process
+        </li>
+        <li><span class="parameter">details</span>
+            <span class="types"><span class="type">mixed</span></span>
+         Wheel info to process
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:mouseWheelMove"></a>
+    <strong>Widget:mouseWheelMove (ev, scale)</strong>
+    </dt>
+    <dd>
+    Called when the mouse is double clicked.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ev</span>
+            <span class="types"><a class="type" href="../classes/el.MouseEvent.html#">el.MouseEvent</a></span>
+         The event to process
+        </li>
+        <li><span class="parameter">scale</span>
+         The scale to magnify by, 1.0 being no scale
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Class_Methods"></a>Class Methods </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Widget.init"></a>
+    <strong>Widget.init ()</strong>
+    </dt>
+    <dd>
+    Initialize the widget.
+ Override this to customize your widget. Required as an <a href="../modules/el.object.html#">el.object</a>
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-02-17 21:40:47 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

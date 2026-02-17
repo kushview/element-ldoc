@@ -1,0 +1,819 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua API</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Attributes">Attributes </a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.AudioBuffer.html">el.AudioBuffer</a></li>
+  <li><a href="../classes/el.Bounds.html">el.Bounds</a></li>
+  <li><a href="../classes/el.Commands.html">el.Commands</a></li>
+  <li><a href="../classes/el.Content.html">el.Content</a></li>
+  <li><a href="../classes/el.Context.html">el.Context</a></li>
+  <li><a href="../classes/el.Desktop.html">el.Desktop</a></li>
+  <li><a href="../classes/el.Graph.html">el.Graph</a></li>
+  <li><a href="../classes/el.GraphEditor.html">el.GraphEditor</a></li>
+  <li><a href="../classes/el.Graphics.html">el.Graphics</a></li>
+  <li><a href="../classes/el.MidiBuffer.html">el.MidiBuffer</a></li>
+  <li><a href="../classes/el.MidiMessage.html">el.MidiMessage</a></li>
+  <li><strong>el.MouseEvent</strong></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Point.html">el.Point</a></li>
+  <li><a href="../classes/el.Range.html">el.Range</a></li>
+  <li><a href="../classes/el.Rectangle.html">el.Rectangle</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.Slider.html">el.Slider</a></li>
+  <li><a href="../classes/el.TextButton.html">el.TextButton</a></li>
+  <li><a href="../classes/el.View.html">el.View</a></li>
+  <li><a href="../classes/el.Widget.html">el.Widget</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+  <li><a href="../classes/el.DSPScriptPosition.html">el.DSPScriptPosition</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.bytes.html">el.bytes</a></li>
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.midi.html">el.midi</a></li>
+  <li><a href="../modules/el.object.html">el.object</a></li>
+  <li><a href="../modules/el.round.html">el.round</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+  <li><a href="../modules/el.strings.html">el.strings</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+  <li><a href="../examples/channelize.lua.html">channelize.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>el.MouseEvent</code></h1>
+<p>A mouse event</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Attributes">Attributes </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.position">MouseEvent.position</a></td>
+	<td class="summary">Position as <a href="../classes/el.Point.html#">el.Point</a>.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.x">MouseEvent.x</a></td>
+	<td class="summary">X position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.y">MouseEvent.y</a></td>
+	<td class="summary">Y position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.pressure">MouseEvent.pressure</a></td>
+	<td class="summary">Pressure (0.0-1.0).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.orientation">MouseEvent.orientation</a></td>
+	<td class="summary">Orientation in radians.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.rotation">MouseEvent.rotation</a></td>
+	<td class="summary">Rotation in radians.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.tiltX">MouseEvent.tiltX</a></td>
+	<td class="summary">Tilt X position (-1.0-1.0).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.tiltY">MouseEvent.tiltY</a></td>
+	<td class="summary">Tilt Y (-1.0-1.0).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.mouseDownX">MouseEvent.mouseDownX ()</a></td>
+	<td class="summary">Get the mouse down x coord.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.mouseDownY">MouseEvent.mouseDownY ()</a></td>
+	<td class="summary">Get the mouse down x coord.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.mouseDownPosition">MouseEvent.mouseDownPosition ()</a></td>
+	<td class="summary">Get the mouse down x coord.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.distanceFromDragStart">MouseEvent.distanceFromDragStart ()</a></td>
+	<td class="summary">Distance from drag start.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.distanceFromDragStartX">MouseEvent.distanceFromDragStartX ()</a></td>
+	<td class="summary">Distance from drag start.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.distanceFromDragStartY">MouseEvent.distanceFromDragStartY ()</a></td>
+	<td class="summary">Distance from drag start.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.offsetFromDragStart">MouseEvent.offsetFromDragStart ()</a></td>
+	<td class="summary">Difference between this position and when mouse was last pressed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.mouseWasDraggedSinceMouseDown">MouseEvent.mouseWasDraggedSinceMouseDown ()</a></td>
+	<td class="summary">True if has been dragged since down.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.lengthOfPress">MouseEvent.lengthOfPress ()</a></td>
+	<td class="summary">Returns the length in milliseconds of the press.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.wasClicked">MouseEvent.wasClicked ()</a></td>
+	<td class="summary">True if the mouse was clicked.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.numberOfClicks">MouseEvent.numberOfClicks ()</a></td>
+	<td class="summary">Get the number of clicks.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.isPressureValid">MouseEvent.isPressureValid ()</a></td>
+	<td class="summary">True if pressure is valid.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.isOrientationValid">MouseEvent.isOrientationValid ()</a></td>
+	<td class="summary">True if pressure is valid.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.isRotationValid">MouseEvent.isRotationValid ()</a></td>
+	<td class="summary">True if pressure is valid.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.isTiltValid">MouseEvent.isTiltValid ()</a></td>
+	<td class="summary">True if pressure is valid.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.screenX">MouseEvent.screenX ()</a></td>
+	<td class="summary">Get the screen position X</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.screenY">MouseEvent.screenY ()</a></td>
+	<td class="summary">Get the screen position Y</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.screenPosition">MouseEvent.screenPosition ()</a></td>
+	<td class="summary">Get the screen position Point</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.downScreenX">MouseEvent.downScreenX ()</a></td>
+	<td class="summary">Get the screen position X</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.downScreenY">MouseEvent.downScreenY ()</a></td>
+	<td class="summary">Get the screen position Y</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.downScreenPosition">MouseEvent.downScreenPosition ()</a></td>
+	<td class="summary">Get the screen position Point</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.isMenu">MouseEvent.isMenu ()</a></td>
+	<td class="summary">True if a popup menu is expected.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.isMenu">MouseEvent.isMenu ()</a></td>
+	<td class="summary">True if a popup menu is expected.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.isMenu">MouseEvent.isMenu ()</a></td>
+	<td class="summary">True if CTRL is down on win/linux or Command on macOS.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.isMenu">MouseEvent.isMenu ()</a></td>
+	<td class="summary">True if CTRL is down.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.isMenu">MouseEvent.isMenu ()</a></td>
+	<td class="summary">True if shift is down.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.isMenu">MouseEvent.isMenu ()</a></td>
+	<td class="summary">True if the left button is down.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.isMenu">MouseEvent.isMenu ()</a></td>
+	<td class="summary">True if the middle button is down.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MouseEvent.isMenu">MouseEvent.isMenu ()</a></td>
+	<td class="summary">True if the right button is down.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Attributes"></a>Attributes </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "MouseEvent.position"></a>
+    <strong>MouseEvent.position</strong>
+    </dt>
+    <dd>
+    Position as <a href="../classes/el.Point.html#">el.Point</a>.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.x"></a>
+    <strong>MouseEvent.x</strong>
+    </dt>
+    <dd>
+    X position.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.y"></a>
+    <strong>MouseEvent.y</strong>
+    </dt>
+    <dd>
+    Y position.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.pressure"></a>
+    <strong>MouseEvent.pressure</strong>
+    </dt>
+    <dd>
+    Pressure (0.0-1.0).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.orientation"></a>
+    <strong>MouseEvent.orientation</strong>
+    </dt>
+    <dd>
+    Orientation in radians.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.rotation"></a>
+    <strong>MouseEvent.rotation</strong>
+    </dt>
+    <dd>
+    Rotation in radians.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.tiltX"></a>
+    <strong>MouseEvent.tiltX</strong>
+    </dt>
+    <dd>
+    Tilt X position (-1.0-1.0).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.tiltY"></a>
+    <strong>MouseEvent.tiltY</strong>
+    </dt>
+    <dd>
+    Tilt Y (-1.0-1.0).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.mouseDownX"></a>
+    <strong>MouseEvent.mouseDownX ()</strong>
+    </dt>
+    <dd>
+    Get the mouse down x coord.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.mouseDownY"></a>
+    <strong>MouseEvent.mouseDownY ()</strong>
+    </dt>
+    <dd>
+    Get the mouse down x coord.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.mouseDownPosition"></a>
+    <strong>MouseEvent.mouseDownPosition ()</strong>
+    </dt>
+    <dd>
+    Get the mouse down x coord.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.distanceFromDragStart"></a>
+    <strong>MouseEvent.distanceFromDragStart ()</strong>
+    </dt>
+    <dd>
+    Distance from drag start.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.distanceFromDragStartX"></a>
+    <strong>MouseEvent.distanceFromDragStartX ()</strong>
+    </dt>
+    <dd>
+    Distance from drag start.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.distanceFromDragStartY"></a>
+    <strong>MouseEvent.distanceFromDragStartY ()</strong>
+    </dt>
+    <dd>
+    Distance from drag start.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.offsetFromDragStart"></a>
+    <strong>MouseEvent.offsetFromDragStart ()</strong>
+    </dt>
+    <dd>
+    Difference between this position and when mouse was last pressed.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.mouseWasDraggedSinceMouseDown"></a>
+    <strong>MouseEvent.mouseWasDraggedSinceMouseDown ()</strong>
+    </dt>
+    <dd>
+    True if has been dragged since down.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.lengthOfPress"></a>
+    <strong>MouseEvent.lengthOfPress ()</strong>
+    </dt>
+    <dd>
+    Returns the length in milliseconds of the press.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.wasClicked"></a>
+    <strong>MouseEvent.wasClicked ()</strong>
+    </dt>
+    <dd>
+    True if the mouse was clicked.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.numberOfClicks"></a>
+    <strong>MouseEvent.numberOfClicks ()</strong>
+    </dt>
+    <dd>
+    Get the number of clicks.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.isPressureValid"></a>
+    <strong>MouseEvent.isPressureValid ()</strong>
+    </dt>
+    <dd>
+    True if pressure is valid.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.isOrientationValid"></a>
+    <strong>MouseEvent.isOrientationValid ()</strong>
+    </dt>
+    <dd>
+    True if pressure is valid.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.isRotationValid"></a>
+    <strong>MouseEvent.isRotationValid ()</strong>
+    </dt>
+    <dd>
+    True if pressure is valid.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.isTiltValid"></a>
+    <strong>MouseEvent.isTiltValid ()</strong>
+    </dt>
+    <dd>
+    True if pressure is valid.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.screenX"></a>
+    <strong>MouseEvent.screenX ()</strong>
+    </dt>
+    <dd>
+    Get the screen position X
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.screenY"></a>
+    <strong>MouseEvent.screenY ()</strong>
+    </dt>
+    <dd>
+    Get the screen position Y
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.screenPosition"></a>
+    <strong>MouseEvent.screenPosition ()</strong>
+    </dt>
+    <dd>
+    Get the screen position Point
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.downScreenX"></a>
+    <strong>MouseEvent.downScreenX ()</strong>
+    </dt>
+    <dd>
+    Get the screen position X
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.downScreenY"></a>
+    <strong>MouseEvent.downScreenY ()</strong>
+    </dt>
+    <dd>
+    Get the screen position Y
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.downScreenPosition"></a>
+    <strong>MouseEvent.downScreenPosition ()</strong>
+    </dt>
+    <dd>
+    Get the screen position Point
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.isMenu"></a>
+    <strong>MouseEvent.isMenu ()</strong>
+    </dt>
+    <dd>
+    True if a popup menu is expected.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.isMenu"></a>
+    <strong>MouseEvent.isMenu ()</strong>
+    </dt>
+    <dd>
+    True if a popup menu is expected.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.isMenu"></a>
+    <strong>MouseEvent.isMenu ()</strong>
+    </dt>
+    <dd>
+    True if CTRL is down on win/linux or Command on macOS.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.isMenu"></a>
+    <strong>MouseEvent.isMenu ()</strong>
+    </dt>
+    <dd>
+    True if CTRL is down.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.isMenu"></a>
+    <strong>MouseEvent.isMenu ()</strong>
+    </dt>
+    <dd>
+    True if shift is down.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.isMenu"></a>
+    <strong>MouseEvent.isMenu ()</strong>
+    </dt>
+    <dd>
+    True if the left button is down.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.isMenu"></a>
+    <strong>MouseEvent.isMenu ()</strong>
+    </dt>
+    <dd>
+    True if the middle button is down.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MouseEvent.isMenu"></a>
+    <strong>MouseEvent.isMenu ()</strong>
+    </dt>
+    <dd>
+    True if the right button is down.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-02-17 21:40:47 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

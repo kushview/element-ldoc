@@ -1,0 +1,890 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua API</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Attributes">Attributes </a></li>
+<li><a href="#Methods">Methods</a></li>
+<li><a href="#Handlers">Handlers </a></li>
+<li><a href="#Styles">Styles </a></li>
+<li><a href="#TextBox_Position">TextBox Position </a></li>
+<li><a href="#Drag_Mode">Drag Mode </a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.AudioBuffer.html">el.AudioBuffer</a></li>
+  <li><a href="../classes/el.Bounds.html">el.Bounds</a></li>
+  <li><a href="../classes/el.Commands.html">el.Commands</a></li>
+  <li><a href="../classes/el.Content.html">el.Content</a></li>
+  <li><a href="../classes/el.Context.html">el.Context</a></li>
+  <li><a href="../classes/el.Desktop.html">el.Desktop</a></li>
+  <li><a href="../classes/el.Graph.html">el.Graph</a></li>
+  <li><a href="../classes/el.GraphEditor.html">el.GraphEditor</a></li>
+  <li><a href="../classes/el.Graphics.html">el.Graphics</a></li>
+  <li><a href="../classes/el.MidiBuffer.html">el.MidiBuffer</a></li>
+  <li><a href="../classes/el.MidiMessage.html">el.MidiMessage</a></li>
+  <li><a href="../classes/el.MouseEvent.html">el.MouseEvent</a></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Point.html">el.Point</a></li>
+  <li><a href="../classes/el.Range.html">el.Range</a></li>
+  <li><a href="../classes/el.Rectangle.html">el.Rectangle</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><strong>el.Slider</strong></li>
+  <li><a href="../classes/el.TextButton.html">el.TextButton</a></li>
+  <li><a href="../classes/el.View.html">el.View</a></li>
+  <li><a href="../classes/el.Widget.html">el.Widget</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+  <li><a href="../classes/el.DSPScriptPosition.html">el.DSPScriptPosition</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.bytes.html">el.bytes</a></li>
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.midi.html">el.midi</a></li>
+  <li><a href="../modules/el.object.html">el.object</a></li>
+  <li><a href="../modules/el.round.html">el.round</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+  <li><a href="../modules/el.strings.html">el.strings</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+  <li><a href="../examples/channelize.lua.html">channelize.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>el.Slider</code></h1>
+<p>Slider widget.</p>
+<p> Is a <a href="../classes/el.Widget.html#">el.Widget</a></p>
+
+
+<h2><a href="#Attributes">Attributes </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Slider.min">Slider.min</a></td>
+	<td class="summary">Minimum range (readonly).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.max">Slider.max</a></td>
+	<td class="summary">Maximum range (readonly).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.interval">Slider.interval</a></td>
+	<td class="summary">Current step-size (readonly).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.style">Slider.style</a></td>
+	<td class="summary">Kind of slider.</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Slider:range">Slider:range ()</a></td>
+	<td class="summary">Get the current range.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider:setRange">Slider:setRange (min, max, interval)</a></td>
+	<td class="summary">Set the range.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider:setRange">Slider:setRange (range, interval)</a></td>
+	<td class="summary">Set the range.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider:value">Slider:value ()</a></td>
+	<td class="summary">Returns the current value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider:setValue">Slider:setValue (value, notify)</a></td>
+	<td class="summary">Change the current value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider:setTextBoxStyle">Slider:setTextBoxStyle (pos, ro, width, height)</a></td>
+	<td class="summary">Change TextBox position.</td>
+	</tr>
+</table>
+<h2><a href="#Handlers">Handlers </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Slider:changed">Slider:changed ()</a></td>
+	<td class="summary">Value changed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.dragStart">Slider.dragStart ()</a></td>
+	<td class="summary">Started to drag.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.dragEnd">Slider.dragEnd ()</a></td>
+	<td class="summary">Stopped dragging.</td>
+	</tr>
+</table>
+<h2><a href="#Styles">Styles </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Slider.LinearHorizontal">Slider.LinearHorizontal</a></td>
+	<td class="summary">Linear Horizontal.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.LinearVertical">Slider.LinearVertical</a></td>
+	<td class="summary">Linear Vertical.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.LinearBar">Slider.LinearBar</a></td>
+	<td class="summary">Linear Bar.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.LinearBarVertical">Slider.LinearBarVertical</a></td>
+	<td class="summary">Linear Bar Vertical.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.Rotary">Slider.Rotary</a></td>
+	<td class="summary">Rotary.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.RotaryHorizontalDrag">Slider.RotaryHorizontalDrag</a></td>
+	<td class="summary">Rotary horizontal drag.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.RotaryVerticalDrag">Slider.RotaryVerticalDrag</a></td>
+	<td class="summary">Rotary vertical drag.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.RotaryHorizontalVerticalDrag">Slider.RotaryHorizontalVerticalDrag</a></td>
+	<td class="summary">Rotary horizontal/vertical drag.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.SpinButtons">Slider.SpinButtons</a></td>
+	<td class="summary">Spin buttons.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.TwoValueHorizontal">Slider.TwoValueHorizontal</a></td>
+	<td class="summary">Two value horizontal.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.TwoValueVertical">Slider.TwoValueVertical</a></td>
+	<td class="summary">Two value vertical.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.ThreeValueHorizontal">Slider.ThreeValueHorizontal</a></td>
+	<td class="summary">Three value horizontal.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.ThreeValueVertical">Slider.ThreeValueVertical</a></td>
+	<td class="summary">Three value vertical.</td>
+	</tr>
+</table>
+<h2><a href="#TextBox_Position">TextBox Position </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Slider.TextBoxNone">Slider.TextBoxNone</a></td>
+	<td class="summary">No TextBox.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.TextBoxLeft">Slider.TextBoxLeft</a></td>
+	<td class="summary">TextBox on left.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.TextBoxRight">Slider.TextBoxRight</a></td>
+	<td class="summary">TextBox on right.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.TextBoxAbove">Slider.TextBoxAbove</a></td>
+	<td class="summary">TextBox above.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.TextBoxBelow">Slider.TextBoxBelow</a></td>
+	<td class="summary">TextBox below.</td>
+	</tr>
+</table>
+<h2><a href="#Drag_Mode">Drag Mode </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Slider.DragNone">Slider.DragNone</a></td>
+	<td class="summary">Not dragging.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.DragAbsolute">Slider.DragAbsolute</a></td>
+	<td class="summary">Absolute dragging.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.DragVelocity">Slider.DragVelocity</a></td>
+	<td class="summary">Velocity based dragging.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Attributes"></a>Attributes </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Slider.min"></a>
+    <strong>Slider.min</strong>
+    </dt>
+    <dd>
+    Minimum range (readonly).
+
+    </ul>
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/el.Slider.html#Slider:range">Slider.range</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Slider.max"></a>
+    <strong>Slider.max</strong>
+    </dt>
+    <dd>
+    Maximum range (readonly).
+
+    </ul>
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/el.Slider.html#Slider:range">Slider.range</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Slider.interval"></a>
+    <strong>Slider.interval</strong>
+    </dt>
+    <dd>
+    Current step-size (readonly).
+
+    </ul>
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/el.Slider.html#Slider:range">Slider.range</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Slider.style"></a>
+    <strong>Slider.style</strong>
+    </dt>
+    <dd>
+    Kind of slider.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Slider:range"></a>
+    <strong>Slider:range ()</strong>
+    </dt>
+    <dd>
+    Get the current range.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        el.Range The current range
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider:setRange"></a>
+    <strong>Slider:setRange (min, max, interval)</strong>
+    </dt>
+    <dd>
+    Set the range.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">min</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">max</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">interval</span>
+            <span class="types"><span class="type">number</span></span>
+         (default: 0.0)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider:setRange"></a>
+    <strong>Slider:setRange (range, interval)</strong>
+    </dt>
+    <dd>
+    Set the range.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">range</span>
+            <span class="types"><a class="type" href="../classes/el.Range.html#">el.Range</a></span>
+         Range to set
+        </li>
+        <li><span class="parameter">interval</span>
+            <span class="types"><span class="type">number</span></span>
+         Step-size
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider:value"></a>
+    <strong>Slider:value ()</strong>
+    </dt>
+    <dd>
+    Returns the current value.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider:setValue"></a>
+    <strong>Slider:setValue (value, notify)</strong>
+    </dt>
+    <dd>
+    Change the current value.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">number</span></span>
+         New value
+        </li>
+        <li><span class="parameter">notify</span>
+            <span class="types"><span class="type">mixed</span></span>
+         Send notification to listeners
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider:setTextBoxStyle"></a>
+    <strong>Slider:setTextBoxStyle (pos, ro, width, height)</strong>
+    </dt>
+    <dd>
+    Change TextBox position.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pos</span>
+            <span class="types"><span class="type">integer</span></span>
+         Text box position
+        </li>
+        <li><span class="parameter">ro</span>
+            <span class="types"><span class="type">boolean</span></span>
+         Text box is read only
+        </li>
+        <li><span class="parameter">width</span>
+            <span class="types"><span class="type">integer</span></span>
+         Text box width
+        </li>
+        <li><span class="parameter">height</span>
+            <span class="types"><span class="type">integer</span></span>
+         Text box height
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Handlers"></a>Handlers </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Slider:changed"></a>
+    <strong>Slider:changed ()</strong>
+    </dt>
+    <dd>
+    Value changed. </p>
+
+<p> Override this to handle when the value changes.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.dragStart"></a>
+    <strong>Slider.dragStart ()</strong>
+    </dt>
+    <dd>
+    Started to drag. </p>
+
+<p> Override this to handle when dragging starts.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.dragEnd"></a>
+    <strong>Slider.dragEnd ()</strong>
+    </dt>
+    <dd>
+    Stopped dragging.
+ Override this to handle when dragging ended.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Styles"></a>Styles </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Slider.LinearHorizontal"></a>
+    <strong>Slider.LinearHorizontal</strong>
+    </dt>
+    <dd>
+    Linear Horizontal.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.LinearVertical"></a>
+    <strong>Slider.LinearVertical</strong>
+    </dt>
+    <dd>
+    Linear Vertical.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.LinearBar"></a>
+    <strong>Slider.LinearBar</strong>
+    </dt>
+    <dd>
+    Linear Bar.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.LinearBarVertical"></a>
+    <strong>Slider.LinearBarVertical</strong>
+    </dt>
+    <dd>
+    Linear Bar Vertical.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.Rotary"></a>
+    <strong>Slider.Rotary</strong>
+    </dt>
+    <dd>
+    Rotary.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.RotaryHorizontalDrag"></a>
+    <strong>Slider.RotaryHorizontalDrag</strong>
+    </dt>
+    <dd>
+    Rotary horizontal drag.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.RotaryVerticalDrag"></a>
+    <strong>Slider.RotaryVerticalDrag</strong>
+    </dt>
+    <dd>
+    Rotary vertical drag.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.RotaryHorizontalVerticalDrag"></a>
+    <strong>Slider.RotaryHorizontalVerticalDrag</strong>
+    </dt>
+    <dd>
+    Rotary horizontal/vertical drag.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.SpinButtons"></a>
+    <strong>Slider.SpinButtons</strong>
+    </dt>
+    <dd>
+    Spin buttons.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.TwoValueHorizontal"></a>
+    <strong>Slider.TwoValueHorizontal</strong>
+    </dt>
+    <dd>
+    Two value horizontal.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.TwoValueVertical"></a>
+    <strong>Slider.TwoValueVertical</strong>
+    </dt>
+    <dd>
+    Two value vertical.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.ThreeValueHorizontal"></a>
+    <strong>Slider.ThreeValueHorizontal</strong>
+    </dt>
+    <dd>
+    Three value horizontal.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.ThreeValueVertical"></a>
+    <strong>Slider.ThreeValueVertical</strong>
+    </dt>
+    <dd>
+    Three value vertical.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="TextBox_Position"></a>TextBox Position </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Slider.TextBoxNone"></a>
+    <strong>Slider.TextBoxNone</strong>
+    </dt>
+    <dd>
+    No TextBox.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.TextBoxLeft"></a>
+    <strong>Slider.TextBoxLeft</strong>
+    </dt>
+    <dd>
+    TextBox on left.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.TextBoxRight"></a>
+    <strong>Slider.TextBoxRight</strong>
+    </dt>
+    <dd>
+    TextBox on right.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.TextBoxAbove"></a>
+    <strong>Slider.TextBoxAbove</strong>
+    </dt>
+    <dd>
+    TextBox above.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.TextBoxBelow"></a>
+    <strong>Slider.TextBoxBelow</strong>
+    </dt>
+    <dd>
+    TextBox below.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Drag_Mode"></a>Drag Mode </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Slider.DragNone"></a>
+    <strong>Slider.DragNone</strong>
+    </dt>
+    <dd>
+    Not dragging.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.DragAbsolute"></a>
+    <strong>Slider.DragAbsolute</strong>
+    </dt>
+    <dd>
+    Absolute dragging.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.DragVelocity"></a>
+    <strong>Slider.DragVelocity</strong>
+    </dt>
+    <dd>
+    Velocity based dragging.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-02-17 21:40:47 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua API</title>
+    <link rel="stylesheet" href="ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+
+
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="modules/el.bytes.html">el.bytes</a></li>
+  <li><a href="modules/el.command.html">el.command</a></li>
+  <li><a href="modules/el.midi.html">el.midi</a></li>
+  <li><a href="modules/el.object.html">el.object</a></li>
+  <li><a href="modules/el.round.html">el.round</a></li>
+  <li><a href="modules/el.script.html">el.script</a></li>
+  <li><a href="modules/el.strings.html">el.strings</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="classes/el.AudioBuffer.html">el.AudioBuffer</a></li>
+  <li><a href="classes/el.Bounds.html">el.Bounds</a></li>
+  <li><a href="classes/el.Commands.html">el.Commands</a></li>
+  <li><a href="classes/el.Content.html">el.Content</a></li>
+  <li><a href="classes/el.Context.html">el.Context</a></li>
+  <li><a href="classes/el.Desktop.html">el.Desktop</a></li>
+  <li><a href="classes/el.Graph.html">el.Graph</a></li>
+  <li><a href="classes/el.GraphEditor.html">el.GraphEditor</a></li>
+  <li><a href="classes/el.Graphics.html">el.Graphics</a></li>
+  <li><a href="classes/el.MidiBuffer.html">el.MidiBuffer</a></li>
+  <li><a href="classes/el.MidiMessage.html">el.MidiMessage</a></li>
+  <li><a href="classes/el.MouseEvent.html">el.MouseEvent</a></li>
+  <li><a href="classes/el.Node.html">el.Node</a></li>
+  <li><a href="classes/el.Point.html">el.Point</a></li>
+  <li><a href="classes/el.Range.html">el.Range</a></li>
+  <li><a href="classes/el.Rectangle.html">el.Rectangle</a></li>
+  <li><a href="classes/el.Session.html">el.Session</a></li>
+  <li><a href="classes/el.Slider.html">el.Slider</a></li>
+  <li><a href="classes/el.TextButton.html">el.TextButton</a></li>
+  <li><a href="classes/el.View.html">el.View</a></li>
+  <li><a href="classes/el.Widget.html">el.Widget</a></li>
+  <li><a href="classes/el.MidiPipe.html">el.MidiPipe</a></li>
+  <li><a href="classes/el.DSPScriptPosition.html">el.DSPScriptPosition</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="examples/ampui.lua.html">ampui.lua</a></li>
+  <li><a href="examples/channelize.lua.html">channelize.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+
+  <h2>API reference to Element's scripting engine</h2>
+
+<h2>Modules</h2>
+<table class="module_list">
+	<tr>
+		<td class="name"  nowrap><a href="modules/el.bytes.html">el.bytes</a></td>
+		<td class="summary">Manage raw byte arrays.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="modules/el.command.html">el.command</a></td>
+		<td class="summary">UI Commands.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="modules/el.midi.html">el.midi</a></td>
+		<td class="summary">MIDI factories and utilities.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="modules/el.object.html">el.object</a></td>
+		<td class="summary">Define objects with attributes.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="modules/el.round.html">el.round</a></td>
+		<td class="summary">MIDI utilities.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="modules/el.script.html">el.script</a></td>
+		<td class="summary">Script module.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="modules/el.strings.html">el.strings</a></td>
+		<td class="summary">A Lua module for basic string manipulation.</td>
+	</tr>
+</table>
+<h2>Classes</h2>
+<table class="module_list">
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.AudioBuffer.html">el.AudioBuffer</a></td>
+		<td class="summary">An audio buffer</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.Bounds.html">el.Bounds</a></td>
+		<td class="summary">Bounding box
+ The value type for this is a 32bit integer and Backed by a juce::Rectangle.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.Commands.html">el.Commands</a></td>
+		<td class="summary">UI Commands object.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.Content.html">el.Content</a></td>
+		<td class="summary">Base class for UI main Content.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.Context.html">el.Context</a></td>
+		<td class="summary">The main context in which Element is running.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.Desktop.html">el.Desktop</a></td>
+		<td class="summary">Desktop controls.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.Graph.html">el.Graph</a></td>
+		<td class="summary">The Graph Model.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.GraphEditor.html">el.GraphEditor</a></td>
+		<td class="summary">The base graph editor widget.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.Graphics.html">el.Graphics</a></td>
+		<td class="summary">A drawing context.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.MidiBuffer.html">el.MidiBuffer</a></td>
+		<td class="summary">A MIDI buffer designed for real time performance.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.MidiMessage.html">el.MidiMessage</a></td>
+		<td class="summary">A MIDI Message.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.MouseEvent.html">el.MouseEvent</a></td>
+		<td class="summary">A mouse event</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.Node.html">el.Node</a></td>
+		<td class="summary">The Node Model.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.Point.html">el.Point</a></td>
+		<td class="summary">A pair of x,y coordinates.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.Range.html">el.Range</a></td>
+		<td class="summary">A numeric value range.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.Rectangle.html">el.Rectangle</a></td>
+		<td class="summary">A rectangle.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.Session.html">el.Session</a></td>
+		<td class="summary">The Session Model.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.Slider.html">el.Slider</a></td>
+		<td class="summary">Slider widget.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.TextButton.html">el.TextButton</a></td>
+		<td class="summary">A Text Button.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.View.html">el.View</a></td>
+		<td class="summary">An Element View.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.Widget.html">el.Widget</a></td>
+		<td class="summary">A GUI Widget.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.MidiPipe.html">el.MidiPipe</a></td>
+		<td class="summary">An array of kv.MidiBuffers.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="classes/el.DSPScriptPosition.html">el.DSPScriptPosition</a></td>
+		<td class="summary">Time information for DSP Scripts.</td>
+	</tr>
+</table>
+<h2>Examples</h2>
+<table class="module_list">
+	<tr>
+		<td class="name"  nowrap><a href="examples/amp.lua.html">amp.lua</a></td>
+		<td class="summary"></td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="examples/ampui.lua.html">ampui.lua</a></td>
+		<td class="summary"></td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="examples/channelize.lua.html">channelize.lua</a></td>
+		<td class="summary"></td>
+	</tr>
+</table>
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-02-17 21:40:47 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

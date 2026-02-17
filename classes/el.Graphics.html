@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua API</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Methods">Methods </a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.AudioBuffer.html">el.AudioBuffer</a></li>
+  <li><a href="../classes/el.Bounds.html">el.Bounds</a></li>
+  <li><a href="../classes/el.Commands.html">el.Commands</a></li>
+  <li><a href="../classes/el.Content.html">el.Content</a></li>
+  <li><a href="../classes/el.Context.html">el.Context</a></li>
+  <li><a href="../classes/el.Desktop.html">el.Desktop</a></li>
+  <li><a href="../classes/el.Graph.html">el.Graph</a></li>
+  <li><a href="../classes/el.GraphEditor.html">el.GraphEditor</a></li>
+  <li><strong>el.Graphics</strong></li>
+  <li><a href="../classes/el.MidiBuffer.html">el.MidiBuffer</a></li>
+  <li><a href="../classes/el.MidiMessage.html">el.MidiMessage</a></li>
+  <li><a href="../classes/el.MouseEvent.html">el.MouseEvent</a></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Point.html">el.Point</a></li>
+  <li><a href="../classes/el.Range.html">el.Range</a></li>
+  <li><a href="../classes/el.Rectangle.html">el.Rectangle</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.Slider.html">el.Slider</a></li>
+  <li><a href="../classes/el.TextButton.html">el.TextButton</a></li>
+  <li><a href="../classes/el.View.html">el.View</a></li>
+  <li><a href="../classes/el.Widget.html">el.Widget</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+  <li><a href="../classes/el.DSPScriptPosition.html">el.DSPScriptPosition</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.bytes.html">el.bytes</a></li>
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.midi.html">el.midi</a></li>
+  <li><a href="../modules/el.object.html">el.object</a></li>
+  <li><a href="../modules/el.round.html">el.round</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+  <li><a href="../modules/el.strings.html">el.strings</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+  <li><a href="../examples/channelize.lua.html">channelize.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>el.Graphics</code></h1>
+<p>A drawing context.</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Methods">Methods </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Graphics:save">Graphics:save ()</a></td>
+	<td class="summary">Save the current state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Graphics:restore">Graphics:restore ()</a></td>
+	<td class="summary">Restore the last saved state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Graphics:setColor">Graphics:setColor (color)</a></td>
+	<td class="summary">Change the color.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Graphics:drawText">Graphics:drawText (text, r)</a></td>
+	<td class="summary">Draw some text.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Graphics:drawText">Graphics:drawText (text, x, y, w, h)</a></td>
+	<td class="summary">Draw some text.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Graphics:fillall">Graphics:fillall ()</a></td>
+	<td class="summary">Fill the entire drawing area.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Methods"></a>Methods </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Graphics:save"></a>
+    <strong>Graphics:save ()</strong>
+    </dt>
+    <dd>
+    Save the current state.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Graphics:restore"></a>
+    <strong>Graphics:restore ()</strong>
+    </dt>
+    <dd>
+    Restore the last saved state.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Graphics:setColor"></a>
+    <strong>Graphics:setColor (color)</strong>
+    </dt>
+    <dd>
+    Change the color.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">color</span>
+            <span class="types"><span class="type">integer</span></span>
+         New ARGB color as integer. e.g.<code>0xAARRGGBB</code>
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Graphics:drawText"></a>
+    <strong>Graphics:drawText (text, r)</strong>
+    </dt>
+    <dd>
+    Draw some text.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         Text to draw
+        </li>
+        <li><span class="parameter">r</span>
+            <span class="types"><a class="type" href="../classes/el.Rectangle.html#">el.Rectangle</a></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Graphics:drawText"></a>
+    <strong>Graphics:drawText (text, x, y, w, h)</strong>
+    </dt>
+    <dd>
+    Draw some text.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         Text to draw
+        </li>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">integer</span></span>
+         Horizontal position
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">integer</span></span>
+         Vertical position
+        </li>
+        <li><span class="parameter">w</span>
+            <span class="types"><span class="type">integer</span></span>
+         Width of containing area
+        </li>
+        <li><span class="parameter">h</span>
+            <span class="types"><span class="type">integer</span></span>
+         Height of containing area
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Graphics:fillall"></a>
+    <strong>Graphics:fillall ()</strong>
+    </dt>
+    <dd>
+    Fill the entire drawing area.
+ Fills the drawing area with the current color.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-02-17 21:40:47 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

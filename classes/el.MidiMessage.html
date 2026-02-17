@@ -1,0 +1,1750 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua API</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Methods">Methods </a></li>
+<li><a href="#Constructors">Constructors </a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.AudioBuffer.html">el.AudioBuffer</a></li>
+  <li><a href="../classes/el.Bounds.html">el.Bounds</a></li>
+  <li><a href="../classes/el.Commands.html">el.Commands</a></li>
+  <li><a href="../classes/el.Content.html">el.Content</a></li>
+  <li><a href="../classes/el.Context.html">el.Context</a></li>
+  <li><a href="../classes/el.Desktop.html">el.Desktop</a></li>
+  <li><a href="../classes/el.Graph.html">el.Graph</a></li>
+  <li><a href="../classes/el.GraphEditor.html">el.GraphEditor</a></li>
+  <li><a href="../classes/el.Graphics.html">el.Graphics</a></li>
+  <li><a href="../classes/el.MidiBuffer.html">el.MidiBuffer</a></li>
+  <li><strong>el.MidiMessage</strong></li>
+  <li><a href="../classes/el.MouseEvent.html">el.MouseEvent</a></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Point.html">el.Point</a></li>
+  <li><a href="../classes/el.Range.html">el.Range</a></li>
+  <li><a href="../classes/el.Rectangle.html">el.Rectangle</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.Slider.html">el.Slider</a></li>
+  <li><a href="../classes/el.TextButton.html">el.TextButton</a></li>
+  <li><a href="../classes/el.View.html">el.View</a></li>
+  <li><a href="../classes/el.Widget.html">el.Widget</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+  <li><a href="../classes/el.DSPScriptPosition.html">el.DSPScriptPosition</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.bytes.html">el.bytes</a></li>
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.midi.html">el.midi</a></li>
+  <li><a href="../modules/el.object.html">el.object</a></li>
+  <li><a href="../modules/el.round.html">el.round</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+  <li><a href="../modules/el.strings.html">el.strings</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+  <li><a href="../examples/channelize.lua.html">channelize.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>el.MidiMessage</code></h1>
+<p>A MIDI Message.</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Methods">Methods </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:data">MidiMessage:data ()</a></td>
+	<td class="summary">Raw data.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:description">MidiMessage:description ()</a></td>
+	<td class="summary">Message description.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:time">MidiMessage:time ()</a></td>
+	<td class="summary">Timestamp.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:setTime">MidiMessage:setTime (t)</a></td>
+	<td class="summary">Change timestamp.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:addTime">MidiMessage:addTime (dt)</a></td>
+	<td class="summary">Add to timestamp.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:withTime">MidiMessage:withTime (t)</a></td>
+	<td class="summary">Create copy with a new timestamp.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:channel">MidiMessage:channel ()</a></td>
+	<td class="summary">Midi Channel.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:hasChannel">MidiMessage:hasChannel (ch)</a></td>
+	<td class="summary">Is a channel message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:setChannel">MidiMessage:setChannel (ch)</a></td>
+	<td class="summary">Set the channel.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isSysex">MidiMessage:isSysex ()</a></td>
+	<td class="summary">Is System Exclusive.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:sysExData">MidiMessage:sysExData ()</a></td>
+	<td class="summary">Sysex Data.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isNoteOn">MidiMessage:isNoteOn ()</a></td>
+	<td class="summary">Is note on.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isNoteOff">MidiMessage:isNoteOff ()</a></td>
+	<td class="summary">Is note off.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isNote">MidiMessage:isNote ()</a></td>
+	<td class="summary">Is note on or off.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:note">MidiMessage:note ()</a></td>
+	<td class="summary">Note number.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:setNote">MidiMessage:setNote (note)</a></td>
+	<td class="summary">Change note number.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:velocity">MidiMessage:velocity ()</a></td>
+	<td class="summary">Velocity.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:fvelocity">MidiMessage:fvelocity ()</a></td>
+	<td class="summary">Float velocity.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:xvelocity">MidiMessage:xvelocity (m)</a></td>
+	<td class="summary">Multiply Velocity.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:setVelocity">MidiMessage:setVelocity (v)</a></td>
+	<td class="summary">Change velocity.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isProgram">MidiMessage:isProgram ()</a></td>
+	<td class="summary">Is program change?</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:program">MidiMessage:program ()</a></td>
+	<td class="summary">Program number.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isPitch">MidiMessage:isPitch ()</a></td>
+	<td class="summary">Is pitch message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:pitch">MidiMessage:pitch ()</a></td>
+	<td class="summary">Pitch.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isAfterTouch">MidiMessage:isAfterTouch ()</a></td>
+	<td class="summary">Is after touch message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:afterTouch">MidiMessage:afterTouch ()</a></td>
+	<td class="summary">After touch.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isPressure">MidiMessage:isPressure ()</a></td>
+	<td class="summary">Is pressure message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:pressure">MidiMessage:pressure ()</a></td>
+	<td class="summary">Pressure.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isController">MidiMessage:isController ()</a></td>
+	<td class="summary">Is controller message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:controller">MidiMessage:controller ()</a></td>
+	<td class="summary">Returns the controller number.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:controllerValue">MidiMessage:controllerValue ()</a></td>
+	<td class="summary">Returns the controller value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isControllerType">MidiMessage:isControllerType (type)</a></td>
+	<td class="summary">Check if this is a particular controller message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isNotesOff">MidiMessage:isNotesOff ()</a></td>
+	<td class="summary">True if all notes off message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isSoundOff">MidiMessage:isSoundOff ()</a></td>
+	<td class="summary">True if all sounds off message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isResetControllers">MidiMessage:isResetControllers ()</a></td>
+	<td class="summary">True if reset controllers message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isMeta">MidiMessage:isMeta ()</a></td>
+	<td class="summary">True if a Meta message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:metaType">MidiMessage:metaType ()</a></td>
+	<td class="summary">Returns the metadata type.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:metaData">MidiMessage:metaData ()</a></td>
+	<td class="summary">Returns the metadata.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:metaLength">MidiMessage:metaLength ()</a></td>
+	<td class="summary">Returns the metadata length.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isTrack">MidiMessage:isTrack ()</a></td>
+	<td class="summary">Returns true if a track message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isTrackEnd">MidiMessage:isTrackEnd ()</a></td>
+	<td class="summary">Returns true if track end message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isTrackName">MidiMessage:isTrackName ()</a></td>
+	<td class="summary">Returns true if track name message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isText">MidiMessage:isText ()</a></td>
+	<td class="summary">Returns true if a text message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:text">MidiMessage:text ()</a></td>
+	<td class="summary">Returns the text.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isTempo">MidiMessage:isTempo ()</a></td>
+	<td class="summary">Returns true if a tempo message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:tempoSPQN">MidiMessage:tempoSPQN ()</a></td>
+	<td class="summary">Returns the tempo SPQN.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:tempoTicks">MidiMessage:tempoTicks ()</a></td>
+	<td class="summary">Returns the tempo ticks.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isActiveSense">MidiMessage:isActiveSense ()</a></td>
+	<td class="summary">Returns true if an active sense message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isStart">MidiMessage:isStart ()</a></td>
+	<td class="summary">Returns true if a start message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isStop">MidiMessage:isStop ()</a></td>
+	<td class="summary">Returns true if a stop message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isContinue">MidiMessage:isContinue ()</a></td>
+	<td class="summary">Returns true if a continue message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isClock">MidiMessage:isClock ()</a></td>
+	<td class="summary">Returns true if is MIDI clock.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isSPP">MidiMessage:isSPP ()</a></td>
+	<td class="summary">Returns true if a song position pointer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:sppBeat">MidiMessage:sppBeat ()</a></td>
+	<td class="summary">Returns true if song position pointer beat.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isQuarterFrame">MidiMessage:isQuarterFrame ()</a></td>
+	<td class="summary">Returns true if a quarter frame message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:quarterFrameSeq">MidiMessage:quarterFrameSeq ()</a></td>
+	<td class="summary">Get the quarter frame sequence.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:quarterFrameValue">MidiMessage:quarterFrameValue ()</a></td>
+	<td class="summary">Returns true if song position pointer beat.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isFullFrame">MidiMessage:isFullFrame ()</a></td>
+	<td class="summary">Returns true if a full frame message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:fullFrameParams">MidiMessage:fullFrameParams ()</a></td>
+	<td class="summary">Get full frame parameters.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isMMC">MidiMessage:isMMC ()</a></td>
+	<td class="summary">Returns true if a MMC message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:mmcCommand">MidiMessage:mmcCommand ()</a></td>
+	<td class="summary">MMC Command.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:goto">MidiMessage:goto ()</a></td>
+	<td class="summary">MIDI goto.</td>
+	</tr>
+</table>
+<h2><a href="#Constructors">Constructors </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage.new">MidiMessage.new (data)</a></td>
+	<td class="summary">Create a new MIDI message.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Methods"></a>Methods </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "MidiMessage:data"></a>
+    <strong>MidiMessage:data ()</strong>
+    </dt>
+    <dd>
+    Raw data.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:description"></a>
+    <strong>MidiMessage:description ()</strong>
+    </dt>
+    <dd>
+    Message description.
+ Get human readable information about the message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:time"></a>
+    <strong>MidiMessage:time ()</strong>
+    </dt>
+    <dd>
+    Timestamp.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        Timestamp
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:setTime"></a>
+    <strong>MidiMessage:setTime (t)</strong>
+    </dt>
+    <dd>
+    Change timestamp.  The time format depends on the context in which the
+ message is being used.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">t</span>
+            <span class="types"><span class="type">number</span></span>
+         Timestamp to set
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:addTime"></a>
+    <strong>MidiMessage:addTime (dt)</strong>
+    </dt>
+    <dd>
+    Add to timestamp.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dt</span>
+            <span class="types"><span class="type">number</span></span>
+         Delta time to add
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:withTime"></a>
+    <strong>MidiMessage:withTime (t)</strong>
+    </dt>
+    <dd>
+    Create copy with a new timestamp.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">t</span>
+            <span class="types"><span class="type">number</span></span>
+         Timestamp to set
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">kv.MidiMessage</span></span>
+        New midi message
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:channel"></a>
+    <strong>MidiMessage:channel ()</strong>
+    </dt>
+    <dd>
+    Midi Channel.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        1-16 if valid channel
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:hasChannel"></a>
+    <strong>MidiMessage:hasChannel (ch)</strong>
+    </dt>
+    <dd>
+    Is a channel message.
+ Returns true if the message has the given channel
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ch</span>
+            <span class="types"><span class="type">integer</span></span>
+         Channel to check
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:setChannel"></a>
+    <strong>MidiMessage:setChannel (ch)</strong>
+    </dt>
+    <dd>
+    Set the channel.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ch</span>
+            <span class="types"><span class="type">integer</span></span>
+         Channel to set (1-16)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isSysex"></a>
+    <strong>MidiMessage:isSysex ()</strong>
+    </dt>
+    <dd>
+    Is System Exclusive.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        True if is SysEx message
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:sysExData"></a>
+    <strong>MidiMessage:sysExData ()</strong>
+    </dt>
+    <dd>
+    Sysex Data.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+        Raw sysex bytes</li>
+        <li>
+        Sysex data size</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isNoteOn"></a>
+    <strong>MidiMessage:isNoteOn ()</strong>
+    </dt>
+    <dd>
+    Is note on.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        True if a note on message
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isNoteOff"></a>
+    <strong>MidiMessage:isNoteOff ()</strong>
+    </dt>
+    <dd>
+    Is note off.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        True if a note on message
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isNote"></a>
+    <strong>MidiMessage:isNote ()</strong>
+    </dt>
+    <dd>
+    Is note on or off.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        True if a note on message
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:note"></a>
+    <strong>MidiMessage:note ()</strong>
+    </dt>
+    <dd>
+    Note number.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The note number
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:setNote"></a>
+    <strong>MidiMessage:setNote (note)</strong>
+    </dt>
+    <dd>
+    Change note number.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">note</span>
+            <span class="types"><span class="type">integer</span></span>
+         New note number
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:velocity"></a>
+    <strong>MidiMessage:velocity ()</strong>
+    </dt>
+    <dd>
+    Velocity.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        Velocity (0-127)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:fvelocity"></a>
+    <strong>MidiMessage:fvelocity ()</strong>
+    </dt>
+    <dd>
+    Float velocity.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        Velocity (0.0-1.0)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:xvelocity"></a>
+    <strong>MidiMessage:xvelocity (m)</strong>
+    </dt>
+    <dd>
+    Multiply Velocity.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">m</span>
+            <span class="types"><span class="type">number</span></span>
+         Multiplier
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:setVelocity"></a>
+    <strong>MidiMessage:setVelocity (v)</strong>
+    </dt>
+    <dd>
+    Change velocity.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">v</span>
+            <span class="types"><span class="type">number</span></span>
+         New velocity (0.0-1.0)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isProgram"></a>
+    <strong>MidiMessage:isProgram ()</strong>
+    </dt>
+    <dd>
+    Is program change?
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        True if a program change message
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:program"></a>
+    <strong>MidiMessage:program ()</strong>
+    </dt>
+    <dd>
+    Program number.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The program number
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isPitch"></a>
+    <strong>MidiMessage:isPitch ()</strong>
+    </dt>
+    <dd>
+    Is pitch message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        True if a pitch message
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:pitch"></a>
+    <strong>MidiMessage:pitch ()</strong>
+    </dt>
+    <dd>
+    Pitch.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        Pitch
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isAfterTouch"></a>
+    <strong>MidiMessage:isAfterTouch ()</strong>
+    </dt>
+    <dd>
+    Is after touch message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        True if an after touch message
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:afterTouch"></a>
+    <strong>MidiMessage:afterTouch ()</strong>
+    </dt>
+    <dd>
+    After touch.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        After touch value
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isPressure"></a>
+    <strong>MidiMessage:isPressure ()</strong>
+    </dt>
+    <dd>
+    Is pressure message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        True if an after touch message
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:pressure"></a>
+    <strong>MidiMessage:pressure ()</strong>
+    </dt>
+    <dd>
+    Pressure.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        Presure value
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isController"></a>
+    <strong>MidiMessage:isController ()</strong>
+    </dt>
+    <dd>
+    Is controller message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        True if a controller message
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:controller"></a>
+    <strong>MidiMessage:controller ()</strong>
+    </dt>
+    <dd>
+    Returns the controller number.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The controller number
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:controllerValue"></a>
+    <strong>MidiMessage:controllerValue ()</strong>
+    </dt>
+    <dd>
+    Returns the controller value.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The controller value
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isControllerType"></a>
+    <strong>MidiMessage:isControllerType (type)</strong>
+    </dt>
+    <dd>
+    Check if this is a particular controller message.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">type</span>
+            <span class="types"><span class="type">integer</span></span>
+         Controller type to check for
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isNotesOff"></a>
+    <strong>MidiMessage:isNotesOff ()</strong>
+    </dt>
+    <dd>
+    True if all notes off message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isSoundOff"></a>
+    <strong>MidiMessage:isSoundOff ()</strong>
+    </dt>
+    <dd>
+    True if all sounds off message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isResetControllers"></a>
+    <strong>MidiMessage:isResetControllers ()</strong>
+    </dt>
+    <dd>
+    True if reset controllers message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isMeta"></a>
+    <strong>MidiMessage:isMeta ()</strong>
+    </dt>
+    <dd>
+    True if a Meta message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:metaType"></a>
+    <strong>MidiMessage:metaType ()</strong>
+    </dt>
+    <dd>
+    Returns the metadata type.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:metaData"></a>
+    <strong>MidiMessage:metaData ()</strong>
+    </dt>
+    <dd>
+    Returns the metadata.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:metaLength"></a>
+    <strong>MidiMessage:metaLength ()</strong>
+    </dt>
+    <dd>
+    Returns the metadata length.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isTrack"></a>
+    <strong>MidiMessage:isTrack ()</strong>
+    </dt>
+    <dd>
+    Returns true if a track message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isTrackEnd"></a>
+    <strong>MidiMessage:isTrackEnd ()</strong>
+    </dt>
+    <dd>
+    Returns true if track end message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isTrackName"></a>
+    <strong>MidiMessage:isTrackName ()</strong>
+    </dt>
+    <dd>
+    Returns true if track name message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isText"></a>
+    <strong>MidiMessage:isText ()</strong>
+    </dt>
+    <dd>
+    Returns true if a text message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:text"></a>
+    <strong>MidiMessage:text ()</strong>
+    </dt>
+    <dd>
+    Returns the text.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isTempo"></a>
+    <strong>MidiMessage:isTempo ()</strong>
+    </dt>
+    <dd>
+    Returns true if a tempo message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:tempoSPQN"></a>
+    <strong>MidiMessage:tempoSPQN ()</strong>
+    </dt>
+    <dd>
+    Returns the tempo SPQN.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:tempoTicks"></a>
+    <strong>MidiMessage:tempoTicks ()</strong>
+    </dt>
+    <dd>
+    Returns the tempo ticks.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isActiveSense"></a>
+    <strong>MidiMessage:isActiveSense ()</strong>
+    </dt>
+    <dd>
+    Returns true if an active sense message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isStart"></a>
+    <strong>MidiMessage:isStart ()</strong>
+    </dt>
+    <dd>
+    Returns true if a start message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isStop"></a>
+    <strong>MidiMessage:isStop ()</strong>
+    </dt>
+    <dd>
+    Returns true if a stop message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isContinue"></a>
+    <strong>MidiMessage:isContinue ()</strong>
+    </dt>
+    <dd>
+    Returns true if a continue message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isClock"></a>
+    <strong>MidiMessage:isClock ()</strong>
+    </dt>
+    <dd>
+    Returns true if is MIDI clock.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isSPP"></a>
+    <strong>MidiMessage:isSPP ()</strong>
+    </dt>
+    <dd>
+    Returns true if a song position pointer.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:sppBeat"></a>
+    <strong>MidiMessage:sppBeat ()</strong>
+    </dt>
+    <dd>
+    Returns true if song position pointer beat.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isQuarterFrame"></a>
+    <strong>MidiMessage:isQuarterFrame ()</strong>
+    </dt>
+    <dd>
+    Returns true if a quarter frame message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:quarterFrameSeq"></a>
+    <strong>MidiMessage:quarterFrameSeq ()</strong>
+    </dt>
+    <dd>
+    Get the quarter frame sequence.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The sequence
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:quarterFrameValue"></a>
+    <strong>MidiMessage:quarterFrameValue ()</strong>
+    </dt>
+    <dd>
+    Returns true if song position pointer beat.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The quarter frame value
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isFullFrame"></a>
+    <strong>MidiMessage:isFullFrame ()</strong>
+    </dt>
+    <dd>
+    Returns true if a full frame message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:fullFrameParams"></a>
+    <strong>MidiMessage:fullFrameParams ()</strong>
+    </dt>
+    <dd>
+    Get full frame parameters.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The params
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isMMC"></a>
+    <strong>MidiMessage:isMMC ()</strong>
+    </dt>
+    <dd>
+    Returns true if a MMC message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:mmcCommand"></a>
+    <strong>MidiMessage:mmcCommand ()</strong>
+    </dt>
+    <dd>
+    MMC Command.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:goto"></a>
+    <strong>MidiMessage:goto ()</strong>
+    </dt>
+    <dd>
+    MIDI goto.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Constructors"></a>Constructors </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "MidiMessage.new"></a>
+    <strong>MidiMessage.new (data)</strong>
+    </dt>
+    <dd>
+    Create a new MIDI message.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">data</span>
+            <span class="types"><span class="type">integer</span></span>
+         Data as a packed integer. see <a href="../modules/el.midi.html#">el.midi</a>
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/el.MidiMessage.html#">el.MidiMessage</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-02-17 21:40:47 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

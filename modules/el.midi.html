@@ -1,0 +1,675 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua API</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Messages">Messages</a></li>
+<li><a href="#Utils">Utils</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.bytes.html">el.bytes</a></li>
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><strong>el.midi</strong></li>
+  <li><a href="../modules/el.object.html">el.object</a></li>
+  <li><a href="../modules/el.round.html">el.round</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+  <li><a href="../modules/el.strings.html">el.strings</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.AudioBuffer.html">el.AudioBuffer</a></li>
+  <li><a href="../classes/el.Bounds.html">el.Bounds</a></li>
+  <li><a href="../classes/el.Commands.html">el.Commands</a></li>
+  <li><a href="../classes/el.Content.html">el.Content</a></li>
+  <li><a href="../classes/el.Context.html">el.Context</a></li>
+  <li><a href="../classes/el.Desktop.html">el.Desktop</a></li>
+  <li><a href="../classes/el.Graph.html">el.Graph</a></li>
+  <li><a href="../classes/el.GraphEditor.html">el.GraphEditor</a></li>
+  <li><a href="../classes/el.Graphics.html">el.Graphics</a></li>
+  <li><a href="../classes/el.MidiBuffer.html">el.MidiBuffer</a></li>
+  <li><a href="../classes/el.MidiMessage.html">el.MidiMessage</a></li>
+  <li><a href="../classes/el.MouseEvent.html">el.MouseEvent</a></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Point.html">el.Point</a></li>
+  <li><a href="../classes/el.Range.html">el.Range</a></li>
+  <li><a href="../classes/el.Rectangle.html">el.Rectangle</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.Slider.html">el.Slider</a></li>
+  <li><a href="../classes/el.TextButton.html">el.TextButton</a></li>
+  <li><a href="../classes/el.View.html">el.View</a></li>
+  <li><a href="../classes/el.Widget.html">el.Widget</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+  <li><a href="../classes/el.DSPScriptPosition.html">el.DSPScriptPosition</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+  <li><a href="../examples/channelize.lua.html">channelize.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>el.midi</code></h1>
+<p>MIDI factories and utilities.</p>
+<p> Functions in this module <strong>do not</strong> check arguments. It is the responsibility
+ of calling code to ensure correct data is passed.</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Author</strong>: Michael Fisher</li>
+    </ul>
+
+
+<h2><a href="#Messages">Messages</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#controller">controller (channel, controller, value)</a></td>
+	<td class="summary">Make a controller message</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#noteon">noteon (channel, note, velocity)</a></td>
+	<td class="summary">Make a note on message</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#noteoff">noteoff (channel, note)</a></td>
+	<td class="summary">Make a regular note off message</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#noteoff">noteoff (channel, note, velocity)</a></td>
+	<td class="summary">Make a note off message with velocity</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#program">program (channel, program)</a></td>
+	<td class="summary">Make a program change message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pitch">pitch (channel, position)</a></td>
+	<td class="summary">Make a pitch wheel message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#aftertouch">aftertouch (channel, note, value)</a></td>
+	<td class="summary">Make an after touch message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#channelpressure">channelpressure (channel, value)</a></td>
+	<td class="summary">Make a channel-pressure message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#allnotesoff">allnotesoff (channel)</a></td>
+	<td class="summary">Make an all notes off message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#allsoundsoff">allsoundsoff (channel)</a></td>
+	<td class="summary">Make an all sounds off message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#allcontrollersoff">allcontrollersoff (channel)</a></td>
+	<td class="summary">Make an all controllers off message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#clock">clock ()</a></td>
+	<td class="summary">Make a clock message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#start">start ()</a></td>
+	<td class="summary">Make a start message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#stop">stop ()</a></td>
+	<td class="summary">Make a stop message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#continue">continue ()</a></td>
+	<td class="summary">Make a continue message.</td>
+	</tr>
+</table>
+<h2><a href="#Utils">Utils</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#tohertz">tohertz (note)</a></td>
+	<td class="summary">Convert a MIDI note to hertz.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#clamp">clamp (value)</a></td>
+	<td class="summary">Clamp to a valid MIDI value (0 - 127)</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Messages"></a>Messages</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "controller"></a>
+    <strong>controller (channel, controller, value)</strong>
+    </dt>
+    <dd>
+    Make a controller message
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+            <span class="types"><span class="type">integer</span></span>
+         MIDI Channel
+        </li>
+        <li><span class="parameter">controller</span>
+            <span class="types"><span class="type">integer</span></span>
+         Controller number
+        </li>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">integer</span></span>
+         Controller Value
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        MIDI message packed as Integer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "noteon"></a>
+    <strong>noteon (channel, note, velocity)</strong>
+    </dt>
+    <dd>
+    Make a note on message
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+            <span class="types"><span class="type">integer</span></span>
+         MIDI Channel
+        </li>
+        <li><span class="parameter">note</span>
+            <span class="types"><span class="type">integer</span></span>
+         Note number 0-127
+        </li>
+        <li><span class="parameter">velocity</span>
+            <span class="types"><span class="type">integer</span></span>
+         Note velocity 0-127
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        MIDI message packed as Integer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "noteoff"></a>
+    <strong>noteoff (channel, note)</strong>
+    </dt>
+    <dd>
+    Make a regular note off message
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+            <span class="types"><span class="type">integer</span></span>
+         MIDI Channel
+        </li>
+        <li><span class="parameter">note</span>
+            <span class="types"><span class="type">integer</span></span>
+         Note number
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        MIDI message packed as Integer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "noteoff"></a>
+    <strong>noteoff (channel, note, velocity)</strong>
+    </dt>
+    <dd>
+    Make a note off message with velocity
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+            <span class="types"><span class="type">integer</span></span>
+         MIDI Channel
+        </li>
+        <li><span class="parameter">note</span>
+            <span class="types"><span class="type">integer</span></span>
+         Note number
+        </li>
+        <li><span class="parameter">velocity</span>
+            <span class="types"><span class="type">integer</span></span>
+         Note velocity
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        MIDI message packed as Integer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "program"></a>
+    <strong>program (channel, program)</strong>
+    </dt>
+    <dd>
+    Make a program change message.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+            <span class="types"><span class="type">integer</span></span>
+         The midi channel (1 to 16)
+        </li>
+        <li><span class="parameter">program</span>
+            <span class="types"><span class="type">integer</span></span>
+         Program number
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        MIDI message packed as Integer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pitch"></a>
+    <strong>pitch (channel, position)</strong>
+    </dt>
+    <dd>
+    Make a pitch wheel message.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+            <span class="types"><span class="type">integer</span></span>
+         The midi channel (1 to 16)
+        </li>
+        <li><span class="parameter">position</span>
+            <span class="types"><span class="type">integer</span></span>
+         The wheel position, in the range 0 to 16383
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        MIDI message packed as Integer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "aftertouch"></a>
+    <strong>aftertouch (channel, note, value)</strong>
+    </dt>
+    <dd>
+    Make an after touch message.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+            <span class="types"><span class="type">integer</span></span>
+         The midi channel (1 to 16)
+        </li>
+        <li><span class="parameter">note</span>
+            <span class="types"><span class="type">integer</span></span>
+         The midi note, in the range 0 to 127
+        </li>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">integer</span></span>
+         The after touch value.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        MIDI message packed as Integer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "channelpressure"></a>
+    <strong>channelpressure (channel, value)</strong>
+    </dt>
+    <dd>
+    Make a channel-pressure message.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+            <span class="types"><span class="type">integer</span></span>
+         The midi channel (1 to 16)
+        </li>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">integer</span></span>
+         The pressure value (0 to 127)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        MIDI message packed as Integer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "allnotesoff"></a>
+    <strong>allnotesoff (channel)</strong>
+    </dt>
+    <dd>
+    Make an all notes off message.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+            <span class="types"><span class="type">integer</span></span>
+         The midi channel (1 to 16)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        MIDI message packed as Integer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "allsoundsoff"></a>
+    <strong>allsoundsoff (channel)</strong>
+    </dt>
+    <dd>
+    Make an all sounds off message.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+            <span class="types"><span class="type">integer</span></span>
+           The midi channel (1 to 16)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        MIDI message packed as Integer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "allcontrollersoff"></a>
+    <strong>allcontrollersoff (channel)</strong>
+    </dt>
+    <dd>
+    Make an all controllers off message.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+            <span class="types"><span class="type">integer</span></span>
+           The midi channel (1 to 16)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        MIDI message packed as Integer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "clock"></a>
+    <strong>clock ()</strong>
+    </dt>
+    <dd>
+    Make a clock message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        MIDI message packed as Integer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "start"></a>
+    <strong>start ()</strong>
+    </dt>
+    <dd>
+    Make a start message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        MIDI message packed as Integer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "stop"></a>
+    <strong>stop ()</strong>
+    </dt>
+    <dd>
+    Make a stop message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        MIDI message packed as Integer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "continue"></a>
+    <strong>continue ()</strong>
+    </dt>
+    <dd>
+    Make a continue message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        MIDI message packed as Integer
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Utils"></a>Utils</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "tohertz"></a>
+    <strong>tohertz (note)</strong>
+    </dt>
+    <dd>
+    Convert a MIDI note to hertz.
+ This version assumes A 440 Hz
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">note</span>
+            <span class="types"><span class="type">integer</span></span>
+         Note number
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Value in hertz
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "clamp"></a>
+    <strong>clamp (value)</strong>
+    </dt>
+    <dd>
+    Clamp to a valid MIDI value (0 - 127)
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">integer</span></span>
+         The value to clamp
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The clamped value.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-02-17 21:40:47 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
